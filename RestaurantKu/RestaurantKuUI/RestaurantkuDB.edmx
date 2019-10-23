@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RestuarankuModels.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="detailorder">
+          <Key>
+            <PropertyRef Name="detailid" />
+          </Key>
+          <Property Name="detailid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderid" Type="int" Nullable="false" />
+          <Property Name="menuid" Type="int" Nullable="false" />
+          <Property Name="qty" Type="int" Nullable="false" />
+          <Property Name="total" Type="int" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="headorder">
+          <Key>
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="orderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employeeid" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="memberid" Type="int" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="payment" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="bank" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="msemployee">
+          <Key>
+            <PropertyRef Name="employeeid" />
+          </Key>
+          <Property Name="employeeid" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="name" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="handphone" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="position" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="msmember">
+          <Key>
+            <PropertyRef Name="memberid" />
+          </Key>
+          <Property Name="memberid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="handphone" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="joindate" Type="date" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="msmenu">
+          <Key>
+            <PropertyRef Name="menuid" />
+          </Key>
+          <Property Name="menuid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="photo" Type="image" Nullable="false" />
+          <Property Name="path" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_detailorder_headorder">
+          <End Role="headorder" Type="Self.headorder" Multiplicity="1" />
+          <End Role="detailorder" Type="Self.detailorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="headorder">
+              <PropertyRef Name="orderid" />
+            </Principal>
+            <Dependent Role="detailorder">
+              <PropertyRef Name="orderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detailorder_msmenu">
+          <End Role="msmenu" Type="Self.msmenu" Multiplicity="1" />
+          <End Role="detailorder" Type="Self.detailorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="msmenu">
+              <PropertyRef Name="menuid" />
+            </Principal>
+            <Dependent Role="detailorder">
+              <PropertyRef Name="menuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_headorder_headorder">
+          <End Role="msemployee" Type="Self.msemployee" Multiplicity="1" />
+          <End Role="headorder" Type="Self.headorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="msemployee">
+              <PropertyRef Name="employeeid" />
+            </Principal>
+            <Dependent Role="headorder">
+              <PropertyRef Name="employeeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_headorder_msmember">
+          <End Role="msmember" Type="Self.msmember" Multiplicity="1" />
+          <End Role="headorder" Type="Self.headorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="msmember">
+              <PropertyRef Name="memberid" />
+            </Principal>
+            <Dependent Role="headorder">
+              <PropertyRef Name="memberid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGetEmployeeData_All" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spHeaderOrder_GetByDetailId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OrderId" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spMenu_GetByDetailId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MenuId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spMsEmployee_Action" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmployeeId" Type="nvarchar" Mode="In" />
+          <Parameter Name="EmployeeName" Type="char" Mode="In" />
+          <Parameter Name="EmployeeEmail" Type="nvarchar" Mode="In" />
+          <Parameter Name="EmployeePassword" Type="nvarchar" Mode="In" />
+          <Parameter Name="EmployeeHandphone" Type="nvarchar" Mode="In" />
+          <Parameter Name="EmployeePosition" Type="nvarchar" Mode="In" />
+          <Parameter Name="Task" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spMsEmployee_GetByHeaderOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmployeeId" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spMsMember_getByOrderId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MemberId" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="RestuarankuModelsStoreContainer">
+          <EntitySet Name="detailorder" EntityType="Self.detailorder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="headorder" EntityType="Self.headorder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="msemployee" EntityType="Self.msemployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="msmember" EntityType="Self.msmember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="msmenu" EntityType="Self.msmenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_detailorder_headorder" Association="Self.FK_detailorder_headorder">
+            <End Role="headorder" EntitySet="headorder" />
+            <End Role="detailorder" EntitySet="detailorder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detailorder_msmenu" Association="Self.FK_detailorder_msmenu">
+            <End Role="msmenu" EntitySet="msmenu" />
+            <End Role="detailorder" EntitySet="detailorder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_headorder_headorder" Association="Self.FK_headorder_headorder">
+            <End Role="msemployee" EntitySet="msemployee" />
+            <End Role="headorder" EntitySet="headorder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_headorder_msmember" Association="Self.FK_headorder_msmember">
+            <End Role="msmember" EntitySet="msmember" />
+            <End Role="headorder" EntitySet="headorder" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RestuarankuModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="detailorder">
+          <Key>
+            <PropertyRef Name="detailid" />
+          </Key>
+          <Property Name="detailid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderid" Type="Int32" Nullable="false" />
+          <Property Name="menuid" Type="Int32" Nullable="false" />
+          <Property Name="qty" Type="Int32" Nullable="false" />
+          <Property Name="total" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="headorder" Relationship="Self.FK_detailorder_headorder" FromRole="detailorder" ToRole="headorder" />
+          <NavigationProperty Name="msmenu" Relationship="Self.FK_detailorder_msmenu" FromRole="detailorder" ToRole="msmenu" />
+        </EntityType>
+        <EntityType Name="headorder">
+          <Key>
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="orderid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employeeid" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="memberid" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="payment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="bank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="detailorders" Relationship="Self.FK_detailorder_headorder" FromRole="headorder" ToRole="detailorder" />
+          <NavigationProperty Name="msemployee" Relationship="Self.FK_headorder_headorder" FromRole="headorder" ToRole="msemployee" />
+          <NavigationProperty Name="msmember" Relationship="Self.FK_headorder_msmember" FromRole="headorder" ToRole="msmember" />
+        </EntityType>
+        <EntityType Name="msemployee">
+          <Key>
+            <PropertyRef Name="employeeid" />
+          </Key>
+          <Property Name="employeeid" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="handphone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="headorders" Relationship="Self.FK_headorder_headorder" FromRole="msemployee" ToRole="headorder" />
+        </EntityType>
+        <EntityType Name="msmember">
+          <Key>
+            <PropertyRef Name="memberid" />
+          </Key>
+          <Property Name="memberid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="handphone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="joindate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="password" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="headorders" Relationship="Self.FK_headorder_msmember" FromRole="msmember" ToRole="headorder" />
+        </EntityType>
+        <EntityType Name="msmenu">
+          <Key>
+            <PropertyRef Name="menuid" />
+          </Key>
+          <Property Name="menuid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="path" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="detailorders" Relationship="Self.FK_detailorder_msmenu" FromRole="msmenu" ToRole="detailorder" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_detailorder_headorder">
+          <End Role="headorder" Type="Self.headorder" Multiplicity="1" />
+          <End Role="detailorder" Type="Self.detailorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="headorder">
+              <PropertyRef Name="orderid" />
+            </Principal>
+            <Dependent Role="detailorder">
+              <PropertyRef Name="orderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detailorder_msmenu">
+          <End Role="msmenu" Type="Self.msmenu" Multiplicity="1" />
+          <End Role="detailorder" Type="Self.detailorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="msmenu">
+              <PropertyRef Name="menuid" />
+            </Principal>
+            <Dependent Role="detailorder">
+              <PropertyRef Name="menuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_headorder_headorder">
+          <End Role="msemployee" Type="Self.msemployee" Multiplicity="1" />
+          <End Role="headorder" Type="Self.headorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="msemployee">
+              <PropertyRef Name="employeeid" />
+            </Principal>
+            <Dependent Role="headorder">
+              <PropertyRef Name="employeeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_headorder_msmember">
+          <End Role="msmember" Type="Self.msmember" Multiplicity="1" />
+          <End Role="headorder" Type="Self.headorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="msmember">
+              <PropertyRef Name="memberid" />
+            </Principal>
+            <Dependent Role="headorder">
+              <PropertyRef Name="memberid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RestaurantkuContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="detailorders" EntityType="Self.detailorder" />
+          <EntitySet Name="headorders" EntityType="Self.headorder" />
+          <EntitySet Name="msemployees" EntityType="Self.msemployee" />
+          <EntitySet Name="msmembers" EntityType="Self.msmember" />
+          <EntitySet Name="msmenus" EntityType="Self.msmenu" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_detailorder_headorder" Association="Self.FK_detailorder_headorder">
+            <End Role="headorder" EntitySet="headorders" />
+            <End Role="detailorder" EntitySet="detailorders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detailorder_msmenu" Association="Self.FK_detailorder_msmenu">
+            <End Role="msmenu" EntitySet="msmenus" />
+            <End Role="detailorder" EntitySet="detailorders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_headorder_headorder" Association="Self.FK_headorder_headorder">
+            <End Role="msemployee" EntitySet="msemployees" />
+            <End Role="headorder" EntitySet="headorders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_headorder_msmember" Association="Self.FK_headorder_msmember">
+            <End Role="msmember" EntitySet="msmembers" />
+            <End Role="headorder" EntitySet="headorders" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(RestuarankuModels.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(RestuarankuModels.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="spGetEmployeeData_All" ReturnType="Collection(RestuarankuModels.spGetEmployeeData_All_Result)" />
+          <FunctionImport Name="spHeaderOrder_GetByDetailId" ReturnType="Collection(RestuarankuModels.spHeaderOrder_GetByDetailId_Result)">
+          <Parameter Name="OrderId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spMenu_GetByDetailId" ReturnType="Collection(RestuarankuModels.spMenu_GetByDetailId_Result)">
+          <Parameter Name="MenuId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spMsEmployee_GetByHeaderOrder" ReturnType="Collection(RestuarankuModels.spMsEmployee_GetByHeaderOrder_Result)">
+          <Parameter Name="EmployeeId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spMsEmployee_Insert">
+            <Parameter Name="EmployeeId" Mode="In" Type="String" />
+            <Parameter Name="EmployeeName" Mode="In" Type="String" />
+            <Parameter Name="EmployeeEmail" Mode="In" Type="String" />
+            <Parameter Name="EmployeePassword" Mode="In" Type="String" />
+            <Parameter Name="EmployeeHandphone" Mode="In" Type="String" />
+            <Parameter Name="EmployeePosition" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spMsMember_getByOrderId" ReturnType="Collection(RestuarankuModels.spMsMember_getByOrderId_Result)">
+          <Parameter Name="MemberId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spMsEmployee_Action">
+            <Parameter Name="EmployeeId" Mode="In" Type="String" />
+            <Parameter Name="EmployeeName" Mode="In" Type="String" />
+            <Parameter Name="EmployeeEmail" Mode="In" Type="String" />
+            <Parameter Name="EmployeePassword" Mode="In" Type="String" />
+            <Parameter Name="EmployeeHandphone" Mode="In" Type="String" />
+            <Parameter Name="EmployeePosition" Mode="In" Type="String" />
+            <Parameter Name="Task" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spGetEmployeeData_All_Result">
+          <Property Type="String" Name="employeeid" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="handphone" Nullable="false" MaxLength="13" />
+          <Property Type="String" Name="position" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spHeaderOrder_GetByDetailId_Result">
+          <Property Type="Int32" Name="orderid" Nullable="false" />
+          <Property Type="String" Name="employeeid" Nullable="false" MaxLength="6" />
+          <Property Type="Int32" Name="memberid" Nullable="false" />
+          <Property Type="DateTime" Name="date" Nullable="false" />
+          <Property Type="String" Name="payment" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="bank" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spMenu_GetByDetailId_Result">
+          <Property Type="Int32" Name="menuid" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="price" Nullable="false" />
+          <Property Type="Binary" Name="photo" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="path" Nullable="false" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="spMsEmployee_GetByHeaderOrder_Result">
+          <Property Type="String" Name="employeeid" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="handphone" Nullable="false" MaxLength="13" />
+          <Property Type="String" Name="position" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spMsMember_getByOrderId_Result">
+          <Property Type="Int32" Name="memberid" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="handphone" Nullable="false" MaxLength="13" />
+          <Property Type="DateTime" Name="joindate" Nullable="false" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="16" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RestuarankuModelsStoreContainer" CdmEntityContainer="RestaurantkuContext">
+          <EntitySetMapping Name="detailorders">
+            <EntityTypeMapping TypeName="RestuarankuModels.detailorder">
+              <MappingFragment StoreEntitySet="detailorder">
+                <ScalarProperty Name="detailid" ColumnName="detailid" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="menuid" ColumnName="menuid" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="headorders">
+            <EntityTypeMapping TypeName="RestuarankuModels.headorder">
+              <MappingFragment StoreEntitySet="headorder">
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+                <ScalarProperty Name="memberid" ColumnName="memberid" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="payment" ColumnName="payment" />
+                <ScalarProperty Name="bank" ColumnName="bank" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="msemployees">
+            <EntityTypeMapping TypeName="RestuarankuModels.msemployee">
+              <MappingFragment StoreEntitySet="msemployee">
+                <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="handphone" ColumnName="handphone" />
+                <ScalarProperty Name="position" ColumnName="position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="msmembers">
+            <EntityTypeMapping TypeName="RestuarankuModels.msmember">
+              <MappingFragment StoreEntitySet="msmember">
+                <ScalarProperty Name="memberid" ColumnName="memberid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="handphone" ColumnName="handphone" />
+                <ScalarProperty Name="joindate" ColumnName="joindate" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="msmenus">
+            <EntityTypeMapping TypeName="RestuarankuModels.msmenu">
+              <MappingFragment StoreEntitySet="msmenu">
+                <ScalarProperty Name="menuid" ColumnName="menuid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="path" ColumnName="path" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RestuarankuModels.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="RestuarankuModels.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="RestuarankuModels.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="RestuarankuModels.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="RestuarankuModels.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestuarankuModels.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="RestuarankuModels.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestuarankuModels.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="RestuarankuModels.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="RestuarankuModels.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="spGetEmployeeData_All" FunctionName="RestuarankuModels.Store.spGetEmployeeData_All">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestuarankuModels.spGetEmployeeData_All_Result">
+                <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="handphone" ColumnName="handphone" />
+                <ScalarProperty Name="position" ColumnName="position" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spHeaderOrder_GetByDetailId" FunctionName="RestuarankuModels.Store.spHeaderOrder_GetByDetailId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestuarankuModels.spHeaderOrder_GetByDetailId_Result">
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+                <ScalarProperty Name="memberid" ColumnName="memberid" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="payment" ColumnName="payment" />
+                <ScalarProperty Name="bank" ColumnName="bank" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spMenu_GetByDetailId" FunctionName="RestuarankuModels.Store.spMenu_GetByDetailId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestuarankuModels.spMenu_GetByDetailId_Result">
+                <ScalarProperty Name="menuid" ColumnName="menuid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="path" ColumnName="path" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spMsEmployee_GetByHeaderOrder" FunctionName="RestuarankuModels.Store.spMsEmployee_GetByHeaderOrder">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestuarankuModels.spMsEmployee_GetByHeaderOrder_Result">
+                <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="handphone" ColumnName="handphone" />
+                <ScalarProperty Name="position" ColumnName="position" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spMsMember_getByOrderId" FunctionName="RestuarankuModels.Store.spMsMember_getByOrderId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestuarankuModels.spMsMember_getByOrderId_Result">
+                <ScalarProperty Name="memberid" ColumnName="memberid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="handphone" ColumnName="handphone" />
+                <ScalarProperty Name="joindate" ColumnName="joindate" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spMsEmployee_Action" FunctionName="RestuarankuModels.Store.spMsEmployee_Action" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
