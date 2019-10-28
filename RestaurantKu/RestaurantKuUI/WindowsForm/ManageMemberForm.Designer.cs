@@ -53,7 +53,7 @@
             this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColJoin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColBankName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColAcc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -260,6 +260,8 @@
             // 
             // DataGridM
             // 
+            this.DataGridM.AllowUserToAddRows = false;
+            this.DataGridM.AllowUserToDeleteRows = false;
             this.DataGridM.AutoGenerateColumns = false;
             this.DataGridM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridM.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -267,7 +269,7 @@
             this.ColName,
             this.ColEmail,
             this.ColPassword,
-            this.ColNumber,
+            this.ColHP,
             this.ColJoin,
             this.ColBankName,
             this.ColAcc,
@@ -276,8 +278,11 @@
             this.ColDeleted});
             this.DataGridM.DataSource = this.memberInformationBindingSource;
             this.DataGridM.Location = new System.Drawing.Point(12, 121);
+            this.DataGridM.MultiSelect = false;
             this.DataGridM.Name = "DataGridM";
+            this.DataGridM.ReadOnly = true;
             this.DataGridM.RowTemplate.Height = 28;
+            this.DataGridM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridM.Size = new System.Drawing.Size(817, 169);
             this.DataGridM.TabIndex = 17;
             this.DataGridM.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridM_CellContentClick_1);
@@ -287,42 +292,50 @@
             this.ColId.DataPropertyName = "MemberId";
             this.ColId.HeaderText = "Id";
             this.ColId.Name = "ColId";
+            this.ColId.ReadOnly = true;
+            this.ColId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ColName
             // 
             this.ColName.DataPropertyName = "MemberName";
             this.ColName.HeaderText = "Name";
             this.ColName.Name = "ColName";
+            this.ColName.ReadOnly = true;
             // 
             // ColEmail
             // 
             this.ColEmail.DataPropertyName = "MemberEmail";
             this.ColEmail.HeaderText = "Email";
             this.ColEmail.Name = "ColEmail";
+            this.ColEmail.ReadOnly = true;
             // 
             // ColPassword
             // 
             this.ColPassword.DataPropertyName = "MemberPassword";
             this.ColPassword.HeaderText = "Password";
             this.ColPassword.Name = "ColPassword";
+            this.ColPassword.ReadOnly = true;
             // 
-            // ColNumber
+            // ColHP
             // 
-            this.ColNumber.DataPropertyName = "HandPhone";
-            this.ColNumber.HeaderText = "Hand Phone";
-            this.ColNumber.Name = "ColNumber";
+            this.ColHP.DataPropertyName = "HandPhone";
+            this.ColHP.HeaderText = "Hand Phone";
+            this.ColHP.Name = "ColHP";
+            this.ColHP.ReadOnly = true;
             // 
             // ColJoin
             // 
             this.ColJoin.DataPropertyName = "JoinDate";
             this.ColJoin.HeaderText = "Join Date";
             this.ColJoin.Name = "ColJoin";
+            this.ColJoin.ReadOnly = true;
             // 
             // ColBankName
             // 
             this.ColBankName.DataPropertyName = "BankName";
             this.ColBankName.HeaderText = "Bank Name";
             this.ColBankName.Name = "ColBankName";
+            this.ColBankName.ReadOnly = true;
             this.ColBankName.Visible = false;
             // 
             // ColAcc
@@ -330,6 +343,7 @@
             this.ColAcc.DataPropertyName = "AccNumber";
             this.ColAcc.HeaderText = "AccNumber";
             this.ColAcc.Name = "ColAcc";
+            this.ColAcc.ReadOnly = true;
             this.ColAcc.Visible = false;
             // 
             // ColCC
@@ -337,6 +351,7 @@
             this.ColCC.DataPropertyName = "CCNumber";
             this.ColCC.HeaderText = "CCNumber";
             this.ColCC.Name = "ColCC";
+            this.ColCC.ReadOnly = true;
             this.ColCC.Visible = false;
             // 
             // ColAddress
@@ -344,12 +359,14 @@
             this.ColAddress.DataPropertyName = "Address";
             this.ColAddress.HeaderText = "Address";
             this.ColAddress.Name = "ColAddress";
+            this.ColAddress.ReadOnly = true;
             // 
             // ColDeleted
             // 
             this.ColDeleted.DataPropertyName = "Deleted";
             this.ColDeleted.HeaderText = "Deleted";
             this.ColDeleted.Name = "ColDeleted";
+            this.ColDeleted.ReadOnly = true;
             this.ColDeleted.Visible = false;
             // 
             // memberInformationBindingSource
@@ -415,17 +432,17 @@
         private System.Windows.Forms.RichTextBox AddressText;
         private System.Windows.Forms.DateTimePicker JoinDateTime;
         private System.Windows.Forms.DataGridView DataGridM;
+        private System.Windows.Forms.BindingSource memberInformationBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColPassword;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColHP;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColJoin;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColBankName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColAcc;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCC;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDeleted;
-        private System.Windows.Forms.BindingSource memberInformationBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColPassword;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColId;
     }
 }

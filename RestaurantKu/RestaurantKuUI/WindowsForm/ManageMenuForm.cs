@@ -65,7 +65,9 @@ namespace RestaurantKuUI
                     Context.spMsMenu_Action(Menuid, NamaText.Text,Convert.ToInt32(HargaText.Text), fileb, PathText.Text, "insert");
                 }
             }
+            MessageBox.Show("Data Berhasil di Input");
         }
+       
         private void BrowsePic()
         {
             OpenFileDialog opf = new OpenFileDialog();
@@ -87,6 +89,11 @@ namespace RestaurantKuUI
             DataGridViewRow Row = new DataGridViewRow();
 
            
+        }
+
+        private void InsertMenuButton_Click(object sender, EventArgs e)
+        {
+            InsertData();
         }
     }
 }

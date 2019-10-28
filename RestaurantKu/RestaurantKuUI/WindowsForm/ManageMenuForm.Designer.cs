@@ -33,6 +33,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ManageEmployeeTitleLabel = new System.Windows.Forms.Label();
             this.DGMenu = new System.Windows.Forms.DataGridView();
+            this.menuIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.photoDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.photoPathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuInformationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.MenuNamaLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.MenuHargaLabel = new System.Windows.Forms.Label();
@@ -47,15 +53,9 @@
             this.PathText = new System.Windows.Forms.TextBox();
             this.BrowsePicButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
-            this.menuIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.photoDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.photoPathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menuInformationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DGMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuInformationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // ManageEmployeeTitleLabel
@@ -103,6 +103,41 @@
             this.DGMenu.Size = new System.Drawing.Size(705, 224);
             this.DGMenu.TabIndex = 2;
             this.DGMenu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGMenu_CellContentClick);
+            // 
+            // menuIdDataGridViewTextBoxColumn
+            // 
+            this.menuIdDataGridViewTextBoxColumn.DataPropertyName = "MenuId";
+            this.menuIdDataGridViewTextBoxColumn.HeaderText = "MenuId";
+            this.menuIdDataGridViewTextBoxColumn.Name = "menuIdDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // photoDataGridViewImageColumn
+            // 
+            this.photoDataGridViewImageColumn.DataPropertyName = "photo";
+            this.photoDataGridViewImageColumn.HeaderText = "photo";
+            this.photoDataGridViewImageColumn.Name = "photoDataGridViewImageColumn";
+            this.photoDataGridViewImageColumn.Visible = false;
+            // 
+            // photoPathDataGridViewTextBoxColumn
+            // 
+            this.photoPathDataGridViewTextBoxColumn.DataPropertyName = "PhotoPath";
+            this.photoPathDataGridViewTextBoxColumn.HeaderText = "PhotoPath";
+            this.photoPathDataGridViewTextBoxColumn.Name = "photoPathDataGridViewTextBoxColumn";
+            // 
+            // menuInformationBindingSource
+            // 
+            this.menuInformationBindingSource.DataSource = typeof(RestaurantKuUI.SupportThings.MenuInformation);
             // 
             // MenuNamaLabel
             // 
@@ -167,6 +202,7 @@
             this.InsertMenuButton.TabIndex = 6;
             this.InsertMenuButton.Text = "Insert";
             this.InsertMenuButton.UseVisualStyleBackColor = true;
+            this.InsertMenuButton.Click += new System.EventHandler(this.InsertMenuButton_Click);
             // 
             // UpdateMenuButton
             // 
@@ -238,41 +274,6 @@
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
             // 
-            // menuIdDataGridViewTextBoxColumn
-            // 
-            this.menuIdDataGridViewTextBoxColumn.DataPropertyName = "MenuId";
-            this.menuIdDataGridViewTextBoxColumn.HeaderText = "MenuId";
-            this.menuIdDataGridViewTextBoxColumn.Name = "menuIdDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // photoDataGridViewImageColumn
-            // 
-            this.photoDataGridViewImageColumn.DataPropertyName = "photo";
-            this.photoDataGridViewImageColumn.HeaderText = "photo";
-            this.photoDataGridViewImageColumn.Name = "photoDataGridViewImageColumn";
-            this.photoDataGridViewImageColumn.Visible = false;
-            // 
-            // photoPathDataGridViewTextBoxColumn
-            // 
-            this.photoPathDataGridViewTextBoxColumn.DataPropertyName = "PhotoPath";
-            this.photoPathDataGridViewTextBoxColumn.HeaderText = "PhotoPath";
-            this.photoPathDataGridViewTextBoxColumn.Name = "photoPathDataGridViewTextBoxColumn";
-            // 
-            // menuInformationBindingSource
-            // 
-            this.menuInformationBindingSource.DataSource = typeof(RestaurantKuUI.SupportThings.MenuInformation);
-            // 
             // ManageMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -301,8 +302,8 @@
             this.Text = "ManageMenuForm";
             this.Load += new System.EventHandler(this.ManageMenuForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuInformationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

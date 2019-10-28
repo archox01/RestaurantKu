@@ -211,6 +211,7 @@
     <FunctionImport Name="spMsMember_Action">
       <Parameter Name="MemberId" Mode="In" Type="Int32" />
       <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
       <Parameter Name="HandPhone" Mode="In" Type="String" />
       <Parameter Name="JoinDate" Mode="In" Type="DateTime" />
       <Parameter Name="Password" Mode="In" Type="String" />

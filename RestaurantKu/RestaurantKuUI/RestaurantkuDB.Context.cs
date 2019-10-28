@@ -240,7 +240,7 @@ namespace RestaurantKuUI
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spMsEmployee_Action", employeeIdParameter, employeeNameParameter, employeeEmailParameter, employeePasswordParameter, employeeHandphoneParameter, employeePositionParameter, taskParameter);
         }
     
-        public virtual int spMsMember_Action(Nullable<int> memberId, string name, string handPhone, Nullable<System.DateTime> joinDate, string password, string cCNumber, string bankName, string accNumber, string address, string deleted, string task)
+        public virtual int spMsMember_Action(Nullable<int> memberId, string name, string email, string handPhone, Nullable<System.DateTime> joinDate, string password, string cCNumber, string bankName, string accNumber, string address, string deleted, string task)
         {
             var memberIdParameter = memberId.HasValue ?
                 new ObjectParameter("MemberId", memberId) :
@@ -249,6 +249,10 @@ namespace RestaurantKuUI
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
                 new ObjectParameter("Name", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
     
             var handPhoneParameter = handPhone != null ?
                 new ObjectParameter("HandPhone", handPhone) :
@@ -286,7 +290,7 @@ namespace RestaurantKuUI
                 new ObjectParameter("Task", task) :
                 new ObjectParameter("Task", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spMsMember_Action", memberIdParameter, nameParameter, handPhoneParameter, joinDateParameter, passwordParameter, cCNumberParameter, bankNameParameter, accNumberParameter, addressParameter, deletedParameter, taskParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spMsMember_Action", memberIdParameter, nameParameter, emailParameter, handPhoneParameter, joinDateParameter, passwordParameter, cCNumberParameter, bankNameParameter, accNumberParameter, addressParameter, deletedParameter, taskParameter);
         }
     
         public virtual int spMsMenu_Action(Nullable<int> menuId, string name, Nullable<int> price, byte[] photo, string path, string task)

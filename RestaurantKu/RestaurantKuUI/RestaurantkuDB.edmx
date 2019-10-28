@@ -175,6 +175,7 @@
         <Function Name="spMsMember_Action" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MemberId" Type="int" Mode="In" />
           <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
           <Parameter Name="HandPhone" Type="nvarchar" Mode="In" />
           <Parameter Name="JoinDate" Type="date" Mode="In" />
           <Parameter Name="Password" Type="nvarchar" Mode="In" />
@@ -435,6 +436,7 @@
           <FunctionImport Name="spMsMember_Action">
             <Parameter Name="MemberId" Mode="In" Type="Int32" />
             <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
             <Parameter Name="HandPhone" Mode="In" Type="String" />
             <Parameter Name="JoinDate" Mode="In" Type="DateTime" />
             <Parameter Name="Password" Mode="In" Type="String" />

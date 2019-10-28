@@ -46,7 +46,7 @@ namespace RestaurantKuUI
                 {
                     var GetLastId = (from s in MemberInfo orderby s.MemberId descending select s).FirstOrDefault();
                     int MemberId = GetLastId.MemberId + 1;
-                    Context.spMsMember_Action(MemberId, Name, CellNumber, JoinMemberTime, Password, "", "", "", Address, "", "insert");
+                    Context.spMsMember_Action(MemberId, Name, MemberEmailText.Text, CellNumber, JoinMemberTime, Password, null, null, null, Address, null, "insert");
                     Context.SaveChanges();
                 }
             }
@@ -54,25 +54,26 @@ namespace RestaurantKuUI
                 using (RestaurantkuContext Context = new RestaurantkuContext())
                 {
                     int MemberId = 1;
-                    Context.spMsMember_Action(MemberId, Name, CellNumber, JoinMemberTime, Password, null, null, null, Address, null, "insert");
+                    Context.spMsMember_Action(MemberId,Name,MemberEmailText.Text,CellNumber,JoinMemberTime,Password,null,null,null,Address,null,"insert");
                 }
             }
         }
         private void UpdateMember()
         {
-            using(RestaurantkuContext Context = new RestaurantkuContext())
+            DateTime JoinMemberTime = JoinDateTime.Value;
+            using (RestaurantkuContext Context = new RestaurantkuContext())
             {
                 int Memberid = Convert.ToInt32(MemberIdTextBox.Text);
                 Context.spMsMember_Action(
-                    Memberid,
-                    MemberNameText.Text, 
-                    CellNumberText.Text, null, 
+                    Convert.ToInt32( MemberIdTextBox.Text), 
+                    Name,
+                    MemberEmailText.Text, 
+                    CellNumberText.Text, 
+                    JoinMemberTime, 
                     MemberPasswordText.Text, 
-                    null, 
-                    null, 
-                    null, 
-                    AddressText.Text, 
-                    null, "update");
+                    null, null, null, 
+                    AddressText.Text,
+                    null, "insert");
                 Context.SaveChanges();
             }
 
@@ -125,7 +126,7 @@ namespace RestaurantKuUI
         {
             using(RestaurantkuContext Context = new RestaurantkuContext())
             {
-                Context.spMsMember_Action(Convert.ToInt32(MemberIdTextBox.Text), null, null, null, null, null, null, null, null, null, "delete");
+                Context.spMsMember_Action(Convert.ToInt32(MemberIdTextBox.Text),null, null, null, null, null, null, null, null, null, null, "delete");
                 Context.SaveChanges();
 
             }
@@ -149,18 +150,24 @@ namespace RestaurantKuUI
                 var repost = new EmployeeRepository();
                 List<MemberInformation> GetData = repost.MemberInfo().ToList();
                 DataGridViewRow row = this.DataGridM.Rows[e.RowIndex];
-                if (e.RowIndex > 0)
+                foreach (DataGridViewColumn col in this.DataGridM.Columns)
                 {
-                    MemberIdTextBox.Text = row.Cells["ColId"].Value.ToString();
-                    MemberNameText.Text = row.Cells["ColName"].Value.ToString();
-                    MemberEmailText.Text = row.Cells["ColEmail"].Value.ToString();
-                    MemberPasswordText.Text = row.Cells["ColPassword"].Value.ToString();
-                    JoinDateTime.Text = row.Cells["ColDate"].Value.ToString();
-                    CellNumberText.Text = row.Cells["ColNumber"].Value.ToString();
-                    AddressText.Text = row.Cells["ColAdd"].Value.ToString();
+                    if (e.RowIndex > 0)
+                    {
+                        MemberIdTextBox.Text = row.Cells["ColId"].Value.ToString();
+                        MemberNameText.Text = row.Cells["ColName"].Value.ToString();
+                        MemberEmailText.Text = row.Cells["ColEmail"].Value.ToString();
+                        MemberPasswordText.Text = row.Cells["ColPassword"].Value.ToString();
+                        JoinDateTime.Text = row.Cells["ColDate"].Value.ToString();
+                        CellNumberText.Text = row.Cells["ColHP"].Value.ToString();
+                        AddressText.Text = row.Cells["ColAddress"].Value.ToString();
+                        col.SortMode = DataGridViewColumnSortMode.NotSortable;
+
+                    }
                 }
             }
             catch { }
+            }
         }
     }
-}
+
