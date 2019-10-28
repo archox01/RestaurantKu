@@ -62,7 +62,6 @@
             this.UsernameLabel.Size = new System.Drawing.Size(77, 32);
             this.UsernameLabel.TabIndex = 1;
             this.UsernameLabel.Text = "Email";
-            this.UsernameLabel.Click += new System.EventHandler(this.UsernameLabel_Click);
             // 
             // PasswordLabel
             // 
@@ -75,7 +74,6 @@
             this.PasswordLabel.Size = new System.Drawing.Size(123, 32);
             this.PasswordLabel.TabIndex = 2;
             this.PasswordLabel.Text = "Password";
-            this.PasswordLabel.Click += new System.EventHandler(this.PasswordLabel_Click);
             // 
             // EmailTextBoxValue
             // 
@@ -84,7 +82,6 @@
             this.EmailTextBoxValue.Name = "EmailTextBoxValue";
             this.EmailTextBoxValue.Size = new System.Drawing.Size(150, 29);
             this.EmailTextBoxValue.TabIndex = 3;
-            this.EmailTextBoxValue.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // PasswordTextBoxValue
             // 
@@ -93,7 +90,6 @@
             this.PasswordTextBoxValue.Name = "PasswordTextBoxValue";
             this.PasswordTextBoxValue.Size = new System.Drawing.Size(150, 29);
             this.PasswordTextBoxValue.TabIndex = 4;
-            this.PasswordTextBoxValue.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // groupBox1
             // 
@@ -123,11 +119,12 @@
             this.LoginButton.TabIndex = 5;
             this.LoginButton.Text = "LOGIN";
             this.LoginButton.UseVisualStyleBackColor = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // RestaurantKuLoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(770, 426);
             this.Controls.Add(this.groupBox1);

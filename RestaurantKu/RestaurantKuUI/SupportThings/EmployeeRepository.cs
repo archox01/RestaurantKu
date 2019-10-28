@@ -22,26 +22,49 @@ namespace RestaurantKuUI.SupportThings
                     EmployeePassword = a.password,
                     EmployeeeHandPhone = a.handphone,
                     EmployeePosition = a.position
+
                 }).ToList();
                 
             }
 
         }
-        public EmployeeInformation InsertData (EmployeeInformation Information)
+        public List<MemberInformation> MemberInfo()
         {
-            //using (RestaurantkuContext Context = new RestaurantkuContext())
-            //{
-            //    string EmployeeId = Information.EmployeeId;
-            //    string EmployeeName = Information.EmployeeName;
-            //    string EmployeeEmail = Information.EmployeeEmail;
-            //    string EmployeePassword = Information.EmployeePassword;
-            //    string EmployeeHP = Information.EmployeeeHandPhone;
-            //    string EmployeePosition = Information.EmployeePosition;
-
-            //    var Go = Context.spMsEmployee_Action(EmployeeId, EmployeeName, EmployeeEmail, EmployeePassword, EmployeeHP, EmployeePosition, "insert");
-            //    return Context;
-            //}
-            return Information;
+            using(var Context = new RestaurantkuContext())
+            {
+                return Context.msmembers.Select(a => new MemberInformation()
+                {
+                    MemberId = a.memberid,
+                    MemberEmail = a.email,
+                    MemberName = a.name,
+                    MemberPassword = a.password,
+                    JoinDate = a.joindate.ToString(),
+                    HandPhone = a.handphone,
+                    BankName = a.BankName,
+                    AccNumber = a.AccNumber,
+                    CCNumber = a.CCNumber,
+                    Address = a.Address,
+                    Deleted = a.Deleted
+                    
+                }).ToList();
+            }
         }
+        public List<MenuInformation> MenuInfo()
+        {
+            using(var Context = new RestaurantkuContext())
+            {
+                return Context.msmenus.Select(a => new MenuInformation()
+                {
+                    MenuId = a.menuid,
+                    Name = a.name,
+                    price = a.price,
+                    photo = a.photo,
+                    PhotoPath = a.path
+                 
+                }).ToList();
+            }
+        }
+      
+        
     }
 }

@@ -32,7 +32,7 @@
       <PropertyRef Name="employeeid" />
     </Key>
     <Property Name="employeeid" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="handphone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
@@ -50,6 +50,11 @@
     <Property Name="joindate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="password" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="headorders" Relationship="Self.FK_headorder_msmember" FromRole="msmember" ToRole="headorder" />
+    <Property Name="CCNumber" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccNumber" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
   </EntityType>
   <EntityType Name="msmenu">
     <Key>
@@ -202,6 +207,27 @@
       <Parameter Name="EmployeeHandphone" Mode="In" Type="String" />
       <Parameter Name="EmployeePosition" Mode="In" Type="String" />
       <Parameter Name="Task" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spMsMember_Action">
+      <Parameter Name="MemberId" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="HandPhone" Mode="In" Type="String" />
+      <Parameter Name="JoinDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="CCNumber" Mode="In" Type="String" />
+      <Parameter Name="BankName" Mode="In" Type="String" />
+      <Parameter Name="AccNumber" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="deleted" Mode="In" Type="String" />
+      <Parameter Name="Task" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spMsMenu_Action">
+      <Parameter Name="MenuId" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Price" Mode="In" Type="Int32" />
+      <Parameter Name="Photo" Mode="In" Type="Binary" />
+      <Parameter Name="Path" Mode="In" Type="String" />
+      <Parameter Name="task" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">

@@ -26,6 +26,11 @@ namespace RestaurantKuUI
         public string handphone { get; set; }
         public System.DateTime joindate { get; set; }
         public string password { get; set; }
+        public string CCNumber { get; set; }
+        public string BankName { get; set; }
+        public string AccNumber { get; set; }
+        public string Address { get; set; }
+        public string Deleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<headorder> headorders { get; set; }

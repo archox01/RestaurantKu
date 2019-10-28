@@ -16,5 +16,42 @@ namespace RestaurantKuUI
         {
             InitializeComponent();
         }
+
+        public string CashierName { get; set; }
+
+        private void PaymentButton_Click(object sender, EventArgs e)
+        {
+            PaymentForm Payment = new PaymentForm();
+            this.Show();
+        }
+
+        private void OrderFormButton_Click(object sender, EventArgs e)
+        {
+            OrderForm Order = new OrderForm();
+            Order.Show();
+        }
+
+        private void CashierProfileButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ChangePasswordButton_Click(object sender, EventArgs e)
+        {
+            ChangePasswordForm Change = new ChangePasswordForm();
+            this.Hide();
+        }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            RestaurantKuLoginForm Login = new RestaurantKuLoginForm();
+            Login.Show();
+        }
+
+        private void CashierNavigationForm_Load(object sender, EventArgs e)
+        {
+            CashierNameLabelValue.Text = CashierName;
+        }
+
     }
 }

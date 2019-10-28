@@ -40,6 +40,11 @@
     <EntitySetMapping Name="msmembers">
       <EntityTypeMapping TypeName="RestuarankuModels.msmember">
         <MappingFragment StoreEntitySet="msmember">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="AccNumber" ColumnName="AccNumber" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="CCNumber" ColumnName="CCNumber" />
           <ScalarProperty Name="memberid" ColumnName="memberid" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="email" ColumnName="email" />
@@ -155,5 +160,7 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="spMsEmployee_Action" FunctionName="RestuarankuModels.Store.spMsEmployee_Action" />
+    <FunctionImportMapping FunctionImportName="spMsMember_Action" FunctionName="RestuarankuModels.Store.spMsMember_Action" />
+    <FunctionImportMapping FunctionImportName="spMsMenu_Action" FunctionName="RestuarankuModels.Store.spMsMenu_Action" />
   </EntityContainerMapping>
 </Mapping>

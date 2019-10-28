@@ -16,7 +16,7 @@ namespace RestaurantKuUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ManageEmployeeForm());
+            Application.Run(new ManageMemberForm());
             
         }
     }

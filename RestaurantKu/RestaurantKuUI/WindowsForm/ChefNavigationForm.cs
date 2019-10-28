@@ -16,10 +16,35 @@ namespace RestaurantKuUI
         {
             InitializeComponent();
         }
+        public string ChefName { get; set; }
 
         private void ChefNavigationForm_Load(object sender, EventArgs e)
         {
+            ChefNameLabelValue.Text = ChefName;
+        }
 
+        private void ChefProfileButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ViewOrderFormButton_Click(object sender, EventArgs e)
+        {
+            ViewOrderForm View = new ViewOrderForm();
+            View.Show();
+        }
+
+        private void ChangePasswordButton_Click(object sender, EventArgs e)
+        {
+            ChangePasswordForm Change = new ChangePasswordForm();
+            Change.Show();
+        }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            RestaurantKuLoginForm Login = new RestaurantKuLoginForm();
+            this.Hide();
+            Login.Show();
         }
     }
 }

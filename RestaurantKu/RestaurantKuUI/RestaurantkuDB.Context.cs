@@ -239,5 +239,83 @@ namespace RestaurantKuUI
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spMsEmployee_Action", employeeIdParameter, employeeNameParameter, employeeEmailParameter, employeePasswordParameter, employeeHandphoneParameter, employeePositionParameter, taskParameter);
         }
+    
+        public virtual int spMsMember_Action(Nullable<int> memberId, string name, string handPhone, Nullable<System.DateTime> joinDate, string password, string cCNumber, string bankName, string accNumber, string address, string deleted, string task)
+        {
+            var memberIdParameter = memberId.HasValue ?
+                new ObjectParameter("MemberId", memberId) :
+                new ObjectParameter("MemberId", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var handPhoneParameter = handPhone != null ?
+                new ObjectParameter("HandPhone", handPhone) :
+                new ObjectParameter("HandPhone", typeof(string));
+    
+            var joinDateParameter = joinDate.HasValue ?
+                new ObjectParameter("JoinDate", joinDate) :
+                new ObjectParameter("JoinDate", typeof(System.DateTime));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            var cCNumberParameter = cCNumber != null ?
+                new ObjectParameter("CCNumber", cCNumber) :
+                new ObjectParameter("CCNumber", typeof(string));
+    
+            var bankNameParameter = bankName != null ?
+                new ObjectParameter("BankName", bankName) :
+                new ObjectParameter("BankName", typeof(string));
+    
+            var accNumberParameter = accNumber != null ?
+                new ObjectParameter("AccNumber", accNumber) :
+                new ObjectParameter("AccNumber", typeof(string));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("Address", address) :
+                new ObjectParameter("Address", typeof(string));
+    
+            var deletedParameter = deleted != null ?
+                new ObjectParameter("deleted", deleted) :
+                new ObjectParameter("deleted", typeof(string));
+    
+            var taskParameter = task != null ?
+                new ObjectParameter("Task", task) :
+                new ObjectParameter("Task", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spMsMember_Action", memberIdParameter, nameParameter, handPhoneParameter, joinDateParameter, passwordParameter, cCNumberParameter, bankNameParameter, accNumberParameter, addressParameter, deletedParameter, taskParameter);
+        }
+    
+        public virtual int spMsMenu_Action(Nullable<int> menuId, string name, Nullable<int> price, byte[] photo, string path, string task)
+        {
+            var menuIdParameter = menuId.HasValue ?
+                new ObjectParameter("MenuId", menuId) :
+                new ObjectParameter("MenuId", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(int));
+    
+            var photoParameter = photo != null ?
+                new ObjectParameter("Photo", photo) :
+                new ObjectParameter("Photo", typeof(byte[]));
+    
+            var pathParameter = path != null ?
+                new ObjectParameter("Path", path) :
+                new ObjectParameter("Path", typeof(string));
+    
+            var taskParameter = task != null ?
+                new ObjectParameter("task", task) :
+                new ObjectParameter("task", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spMsMenu_Action", menuIdParameter, nameParameter, priceParameter, photoParameter, pathParameter, taskParameter);
+        }
     }
 }

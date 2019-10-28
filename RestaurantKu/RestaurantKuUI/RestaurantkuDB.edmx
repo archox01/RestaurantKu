@@ -32,7 +32,7 @@
             <PropertyRef Name="employeeid" />
           </Key>
           <Property Name="employeeid" Type="nvarchar" MaxLength="6" Nullable="false" />
-          <Property Name="name" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="handphone" Type="nvarchar" MaxLength="13" Nullable="false" />
@@ -48,6 +48,11 @@
           <Property Name="handphone" Type="nvarchar" MaxLength="13" Nullable="false" />
           <Property Name="joindate" Type="date" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="CCNumber" Type="nvarchar" MaxLength="16" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccNumber" Type="nvarchar" MaxLength="16" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deleted" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="msmenu">
           <Key>
@@ -167,8 +172,29 @@
         <Function Name="spMsEmployee_GetByHeaderOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="EmployeeId" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="spMsMember_Action" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MemberId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="HandPhone" Type="nvarchar" Mode="In" />
+          <Parameter Name="JoinDate" Type="date" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="CCNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="BankName" Type="nvarchar" Mode="In" />
+          <Parameter Name="AccNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="deleted" Type="char" Mode="In" />
+          <Parameter Name="Task" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="spMsMember_getByOrderId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MemberId" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spMsMenu_Action" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MenuId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Price" Type="int" Mode="In" />
+          <Parameter Name="Photo" Type="image" Mode="In" />
+          <Parameter Name="Path" Type="nvarchar" Mode="In" />
+          <Parameter Name="task" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="RestuarankuModelsStoreContainer">
           <EntitySet Name="detailorder" EntityType="Self.detailorder" Schema="dbo" store:Type="Tables" />
@@ -230,7 +256,7 @@
             <PropertyRef Name="employeeid" />
           </Key>
           <Property Name="employeeid" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="handphone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
@@ -248,6 +274,11 @@
           <Property Name="joindate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="password" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="headorders" Relationship="Self.FK_headorder_msmember" FromRole="msmember" ToRole="headorder" />
+          <Property Name="CCNumber" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccNumber" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="msmenu">
           <Key>
@@ -401,6 +432,27 @@
             <Parameter Name="EmployeePosition" Mode="In" Type="String" />
             <Parameter Name="Task" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="spMsMember_Action">
+            <Parameter Name="MemberId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="HandPhone" Mode="In" Type="String" />
+            <Parameter Name="JoinDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="CCNumber" Mode="In" Type="String" />
+            <Parameter Name="BankName" Mode="In" Type="String" />
+            <Parameter Name="AccNumber" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="deleted" Mode="In" Type="String" />
+            <Parameter Name="Task" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spMsMenu_Action">
+            <Parameter Name="MenuId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Price" Mode="In" Type="Int32" />
+            <Parameter Name="Photo" Mode="In" Type="Binary" />
+            <Parameter Name="Path" Mode="In" Type="String" />
+            <Parameter Name="task" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -497,6 +549,11 @@
           <EntitySetMapping Name="msmembers">
             <EntityTypeMapping TypeName="RestuarankuModels.msmember">
               <MappingFragment StoreEntitySet="msmember">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="AccNumber" ColumnName="AccNumber" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="CCNumber" ColumnName="CCNumber" />
                 <ScalarProperty Name="memberid" ColumnName="memberid" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="email" ColumnName="email" />
@@ -612,6 +669,8 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spMsEmployee_Action" FunctionName="RestuarankuModels.Store.spMsEmployee_Action" />
+          <FunctionImportMapping FunctionImportName="spMsMember_Action" FunctionName="RestuarankuModels.Store.spMsMember_Action" />
+          <FunctionImportMapping FunctionImportName="spMsMenu_Action" FunctionName="RestuarankuModels.Store.spMsMenu_Action" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

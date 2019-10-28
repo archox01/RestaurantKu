@@ -27,7 +27,7 @@
       <PropertyRef Name="employeeid" />
     </Key>
     <Property Name="employeeid" Type="nvarchar" MaxLength="6" Nullable="false" />
-    <Property Name="name" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="handphone" Type="nvarchar" MaxLength="13" Nullable="false" />
@@ -43,6 +43,11 @@
     <Property Name="handphone" Type="nvarchar" MaxLength="13" Nullable="false" />
     <Property Name="joindate" Type="date" Nullable="false" />
     <Property Name="password" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="CCNumber" Type="nvarchar" MaxLength="16" />
+    <Property Name="BankName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccNumber" Type="nvarchar" MaxLength="16" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Deleted" Type="char" MaxLength="1" />
   </EntityType>
   <EntityType Name="msmenu">
     <Key>
@@ -162,8 +167,29 @@
   <Function Name="spMsEmployee_GetByHeaderOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="EmployeeId" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="spMsMember_Action" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="HandPhone" Type="nvarchar" Mode="In" />
+    <Parameter Name="JoinDate" Type="date" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="CCNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="BankName" Type="nvarchar" Mode="In" />
+    <Parameter Name="AccNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="deleted" Type="char" Mode="In" />
+    <Parameter Name="Task" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="spMsMember_getByOrderId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MemberId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spMsMenu_Action" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MenuId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Price" Type="int" Mode="In" />
+    <Parameter Name="Photo" Type="image" Mode="In" />
+    <Parameter Name="Path" Type="nvarchar" Mode="In" />
+    <Parameter Name="task" Type="varchar" Mode="In" />
   </Function>
   <EntityContainer Name="RestuarankuModelsStoreContainer">
     <EntitySet Name="detailorder" EntityType="Self.detailorder" Schema="dbo" store:Type="Tables" />

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Dell\Documents\Visual Studio 2015\Projects\RestaurantKu1-master\RestaurantKuUI\RestaurantkuDB.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Dell\Documents\Visual Studio 2015\Projects\RestaurantkuAPP\RestaurantKu\RestaurantKuUI\RestaurantkuDB.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

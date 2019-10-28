@@ -59,6 +59,8 @@
   <ItemGroup>
     <Compile Include="SupportThings\EmployeeInformation.cs" />
     <Compile Include="SupportThings\EmployeeRepository.cs" />
+    <Compile Include="SupportThings\MemberInformation.cs" />
+    <Compile Include="SupportThings\MenuInformation.cs" />
     <Compile Include="WindowsForm\AdminNavigationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,7 +235,11 @@
       <DependentUpon>ViewOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\RestaurantKuLibrary.Models.RestaurantEmployeeModel.datasource" />
+    <None Include="Properties\DataSources\RestaurantKuUI.SupportThings.EmployeeInformation.datasource" />
+    <None Include="Properties\DataSources\RestaurantKuUI.SupportThings.EmployeeInformation1.datasource" />
+    <None Include="Properties\DataSources\RestaurantKuUI.SupportThings.MemberInformation.datasource" />
+    <None Include="Properties\DataSources\RestaurantKuUI.SupportThings.MemberInformation1.datasource" />
+    <None Include="Properties\DataSources\RestaurantKuUI.SupportThings.MenuInformation.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
