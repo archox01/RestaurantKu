@@ -17,7 +17,11 @@ namespace RestaurantKuUI
         {
             InitializeComponent();
         }
-
+        static string id;
+     public static string getid()
+        {
+            return id;
+        }
         private void LoginButton_Click(object sender, EventArgs e)
         {
             using(RestaurantkuContext Context = new RestaurantkuContext())
@@ -31,7 +35,7 @@ namespace RestaurantKuUI
                 string PasswordText = PasswordTextBoxValue.Text;
                 string EmpEmail = GetEmp.EmployeeEmail;
                 string EmpPassword = GetEmp.EmployeePassword;
-
+                    id = GetEmp.EmployeeId;
                 if (EmpEmail == EmailText )
                 {
                     // Membuat Huruf pertama Menjadi Kapital
@@ -69,6 +73,11 @@ namespace RestaurantKuUI
                 catch(Exception a) { MessageBox.Show("Data Salah, Mohon Periksa Kembali"); }
 
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

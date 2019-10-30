@@ -57,8 +57,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SupportThings\DetailOrderInformation.cs" />
     <Compile Include="SupportThings\EmployeeInformation.cs" />
     <Compile Include="SupportThings\EmployeeRepository.cs" />
+    <Compile Include="SupportThings\HeaderOrderInformation.cs" />
     <Compile Include="SupportThings\MemberInformation.cs" />
     <Compile Include="SupportThings\MenuInformation.cs" />
     <Compile Include="WindowsForm\AdminNavigationForm.cs">
@@ -90,6 +92,12 @@
     </Compile>
     <Compile Include="headorder.cs">
       <DependentUpon>RestaurantkuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForm\DialogPembeli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForm\DialogPembeli.Designer.cs">
+      <DependentUpon>DialogPembeli.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsForm\ManageEmployeeForm.cs">
       <SubType>Form</SubType>
@@ -200,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsForm\ChefNavigationForm.resx">
       <DependentUpon>ChefNavigationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForm\DialogPembeli.resx">
+      <DependentUpon>DialogPembeli.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsForm\ManageEmployeeForm.resx">
       <DependentUpon>ManageEmployeeForm.cs</DependentUpon>

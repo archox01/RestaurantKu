@@ -28,353 +28,280 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.OrderFormLabel = new System.Windows.Forms.Label();
-            this.MinumanDataGrid = new System.Windows.Forms.DataGridView();
-            this.MenuNameLabel = new System.Windows.Forms.Label();
-            this.MenuPriceLabel = new System.Windows.Forms.Label();
-            this.MenuQtyLabel = new System.Windows.Forms.Label();
             this.MenuMakananTextBox = new System.Windows.Forms.TextBox();
             this.HargaMakananTextBox = new System.Windows.Forms.TextBox();
             this.QtyMakananTextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.MinumanPB = new System.Windows.Forms.PictureBox();
-            this.MakananPB = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.QtyMinumanTextBox = new System.Windows.Forms.TextBox();
-            this.HargaMinumanTextBox = new System.Windows.Forms.TextBox();
-            this.MenuMinumanTextBox = new System.Windows.Forms.TextBox();
+            this.AddDataButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.MakananDataGrid = new System.Windows.Forms.DataGridView();
+            this.TotalHargaLabel = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.PaymentProcessButton = new System.Windows.Forms.Button();
-            this.MenuMakananColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HargaMakananColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdMakananColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MenuNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MenuQtyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MenuHargaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MenuTotalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MenuMinumanColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HargaMinumanColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdMinumanColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhotoMinumanColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhotoMakananColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.MinumanDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MinumanPB)).BeginInit();
+            this.MakananPB = new System.Windows.Forms.PictureBox();
+            this.MakananDataGrid = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CariButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.ColMId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPhoto = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuInformationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MakananPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MakananDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuInformationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // OrderFormLabel
             // 
             this.OrderFormLabel.AutoSize = true;
             this.OrderFormLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.OrderFormLabel.Location = new System.Drawing.Point(463, 23);
+            this.OrderFormLabel.Location = new System.Drawing.Point(340, 9);
             this.OrderFormLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.OrderFormLabel.Name = "OrderFormLabel";
             this.OrderFormLabel.Size = new System.Drawing.Size(225, 46);
             this.OrderFormLabel.TabIndex = 0;
             this.OrderFormLabel.Text = "Order Form";
             // 
-            // MinumanDataGrid
-            // 
-            this.MinumanDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MinumanDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MenuMinumanColumn,
-            this.HargaMinumanColumn,
-            this.IdMinumanColumn,
-            this.PhotoMinumanColumn});
-            this.MinumanDataGrid.Location = new System.Drawing.Point(22, 84);
-            this.MinumanDataGrid.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.MinumanDataGrid.Name = "MinumanDataGrid";
-            this.MinumanDataGrid.RowTemplate.Height = 28;
-            this.MinumanDataGrid.Size = new System.Drawing.Size(496, 137);
-            this.MinumanDataGrid.TabIndex = 1;
-            // 
-            // MenuNameLabel
-            // 
-            this.MenuNameLabel.AutoSize = true;
-            this.MenuNameLabel.Location = new System.Drawing.Point(204, 236);
-            this.MenuNameLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.MenuNameLabel.Name = "MenuNameLabel";
-            this.MenuNameLabel.Size = new System.Drawing.Size(49, 20);
-            this.MenuNameLabel.TabIndex = 3;
-            this.MenuNameLabel.Text = "Menu";
-            // 
-            // MenuPriceLabel
-            // 
-            this.MenuPriceLabel.AutoSize = true;
-            this.MenuPriceLabel.Location = new System.Drawing.Point(204, 265);
-            this.MenuPriceLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.MenuPriceLabel.Name = "MenuPriceLabel";
-            this.MenuPriceLabel.Size = new System.Drawing.Size(53, 20);
-            this.MenuPriceLabel.TabIndex = 4;
-            this.MenuPriceLabel.Text = "Harga";
-            // 
-            // MenuQtyLabel
-            // 
-            this.MenuQtyLabel.AutoSize = true;
-            this.MenuQtyLabel.Location = new System.Drawing.Point(204, 293);
-            this.MenuQtyLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.MenuQtyLabel.Name = "MenuQtyLabel";
-            this.MenuQtyLabel.Size = new System.Drawing.Size(76, 20);
-            this.MenuQtyLabel.TabIndex = 5;
-            this.MenuQtyLabel.Text = "Kuantitas";
-            // 
             // MenuMakananTextBox
             // 
-            this.MenuMakananTextBox.Location = new System.Drawing.Point(830, 236);
+            this.MenuMakananTextBox.Location = new System.Drawing.Point(896, 308);
             this.MenuMakananTextBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.MenuMakananTextBox.Name = "MenuMakananTextBox";
-            this.MenuMakananTextBox.Size = new System.Drawing.Size(155, 26);
+            this.MenuMakananTextBox.Size = new System.Drawing.Size(155, 30);
             this.MenuMakananTextBox.TabIndex = 6;
             // 
             // HargaMakananTextBox
             // 
-            this.HargaMakananTextBox.Location = new System.Drawing.Point(830, 265);
+            this.HargaMakananTextBox.Location = new System.Drawing.Point(896, 353);
             this.HargaMakananTextBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.HargaMakananTextBox.Name = "HargaMakananTextBox";
-            this.HargaMakananTextBox.Size = new System.Drawing.Size(155, 26);
+            this.HargaMakananTextBox.Size = new System.Drawing.Size(155, 30);
             this.HargaMakananTextBox.TabIndex = 7;
             // 
             // QtyMakananTextBox
             // 
-            this.QtyMakananTextBox.Location = new System.Drawing.Point(830, 293);
+            this.QtyMakananTextBox.Location = new System.Drawing.Point(896, 396);
             this.QtyMakananTextBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.QtyMakananTextBox.Name = "QtyMakananTextBox";
-            this.QtyMakananTextBox.Size = new System.Drawing.Size(155, 26);
+            this.QtyMakananTextBox.Size = new System.Drawing.Size(155, 30);
             this.QtyMakananTextBox.TabIndex = 8;
             // 
-            // button1
+            // AddDataButton
             // 
-            this.button1.Location = new System.Drawing.Point(454, 256);
-            this.button1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 34);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // MinumanPB
-            // 
-            this.MinumanPB.Location = new System.Drawing.Point(22, 225);
-            this.MinumanPB.Name = "MinumanPB";
-            this.MinumanPB.Size = new System.Drawing.Size(169, 100);
-            this.MinumanPB.TabIndex = 18;
-            this.MinumanPB.TabStop = false;
-            // 
-            // MakananPB
-            // 
-            this.MakananPB.Location = new System.Drawing.Point(566, 225);
-            this.MakananPB.Name = "MakananPB";
-            this.MakananPB.Size = new System.Drawing.Size(169, 100);
-            this.MakananPB.TabIndex = 27;
-            this.MakananPB.TabStop = false;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(998, 256);
-            this.button2.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 34);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // QtyMinumanTextBox
-            // 
-            this.QtyMinumanTextBox.Location = new System.Drawing.Point(287, 287);
-            this.QtyMinumanTextBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.QtyMinumanTextBox.Name = "QtyMinumanTextBox";
-            this.QtyMinumanTextBox.Size = new System.Drawing.Size(155, 26);
-            this.QtyMinumanTextBox.TabIndex = 25;
-            // 
-            // HargaMinumanTextBox
-            // 
-            this.HargaMinumanTextBox.Location = new System.Drawing.Point(287, 259);
-            this.HargaMinumanTextBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.HargaMinumanTextBox.Name = "HargaMinumanTextBox";
-            this.HargaMinumanTextBox.Size = new System.Drawing.Size(155, 26);
-            this.HargaMinumanTextBox.TabIndex = 24;
-            // 
-            // MenuMinumanTextBox
-            // 
-            this.MenuMinumanTextBox.Location = new System.Drawing.Point(287, 230);
-            this.MenuMinumanTextBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.MenuMinumanTextBox.Name = "MenuMinumanTextBox";
-            this.MenuMinumanTextBox.Size = new System.Drawing.Size(155, 26);
-            this.MenuMinumanTextBox.TabIndex = 23;
+            this.AddDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.AddDataButton.Location = new System.Drawing.Point(1059, 313);
+            this.AddDataButton.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.AddDataButton.Name = "AddDataButton";
+            this.AddDataButton.Size = new System.Drawing.Size(79, 47);
+            this.AddDataButton.TabIndex = 26;
+            this.AddDataButton.Text = "Add";
+            this.AddDataButton.UseVisualStyleBackColor = true;
+            this.AddDataButton.Click += new System.EventHandler(this.AddDataButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(748, 293);
+            this.label1.Location = new System.Drawing.Point(726, 396);
             this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 20);
+            this.label1.Size = new System.Drawing.Size(94, 25);
             this.label1.TabIndex = 22;
             this.label1.Text = "Kuantitas";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(748, 265);
+            this.label2.Location = new System.Drawing.Point(726, 356);
             this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 20);
+            this.label2.Size = new System.Drawing.Size(65, 25);
             this.label2.TabIndex = 21;
             this.label2.Text = "Harga";
             // 
-            // label3
+            // TotalHargaLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(748, 236);
-            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 20);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Menu";
-            // 
-            // MakananDataGrid
-            // 
-            this.MakananDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MakananDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MenuMakananColumn,
-            this.HargaMakananColumn,
-            this.IdMakananColumn,
-            this.PhotoMakananColumn});
-            this.MakananDataGrid.Location = new System.Drawing.Point(566, 84);
-            this.MakananDataGrid.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.MakananDataGrid.Name = "MakananDataGrid";
-            this.MakananDataGrid.RowTemplate.Height = 28;
-            this.MakananDataGrid.Size = new System.Drawing.Size(496, 137);
-            this.MakananDataGrid.TabIndex = 19;
+            this.TotalHargaLabel.AutoSize = true;
+            this.TotalHargaLabel.Location = new System.Drawing.Point(1042, 681);
+            this.TotalHargaLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.TotalHargaLabel.Name = "TotalHargaLabel";
+            this.TotalHargaLabel.Size = new System.Drawing.Size(56, 25);
+            this.TotalHargaLabel.TabIndex = 20;
+            this.TotalHargaLabel.Text = "Total";
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MenuNameColumn,
-            this.MenuQtyColumn,
-            this.MenuHargaColumn,
-            this.MenuTotalColumn});
-            this.dataGridView2.Location = new System.Drawing.Point(22, 364);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 471);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(866, 164);
+            this.dataGridView2.Size = new System.Drawing.Size(1124, 196);
             this.dataGridView2.TabIndex = 28;
             // 
             // PaymentProcessButton
             // 
-            this.PaymentProcessButton.Location = new System.Drawing.Point(919, 429);
+            this.PaymentProcessButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.PaymentProcessButton.Location = new System.Drawing.Point(792, 673);
             this.PaymentProcessButton.Name = "PaymentProcessButton";
-            this.PaymentProcessButton.Size = new System.Drawing.Size(87, 41);
+            this.PaymentProcessButton.Size = new System.Drawing.Size(93, 41);
             this.PaymentProcessButton.TabIndex = 29;
             this.PaymentProcessButton.Text = "Process";
             this.PaymentProcessButton.UseVisualStyleBackColor = true;
+            this.PaymentProcessButton.Click += new System.EventHandler(this.PaymentProcessButton_Click);
             // 
-            // MenuMakananColumn
+            // MakananPB
             // 
-            this.MenuMakananColumn.HeaderText = "Menu";
-            this.MenuMakananColumn.Name = "MenuMakananColumn";
+            this.MakananPB.Location = new System.Drawing.Point(12, 273);
+            this.MakananPB.Name = "MakananPB";
+            this.MakananPB.Size = new System.Drawing.Size(312, 192);
+            this.MakananPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MakananPB.TabIndex = 27;
+            this.MakananPB.TabStop = false;
             // 
-            // HargaMakananColumn
+            // MakananDataGrid
             // 
-            this.HargaMakananColumn.HeaderText = "Harga";
-            this.HargaMakananColumn.Name = "HargaMakananColumn";
+            this.MakananDataGrid.AutoGenerateColumns = false;
+            this.MakananDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MakananDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColMId,
+            this.ColName,
+            this.ColPrice,
+            this.ColPhoto,
+            this.ColPath});
+            this.MakananDataGrid.DataSource = this.menuInformationBindingSource;
+            this.MakananDataGrid.Location = new System.Drawing.Point(12, 75);
+            this.MakananDataGrid.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.MakananDataGrid.Name = "MakananDataGrid";
+            this.MakananDataGrid.RowTemplate.Height = 28;
+            this.MakananDataGrid.Size = new System.Drawing.Size(1126, 187);
+            this.MakananDataGrid.TabIndex = 19;
+            this.MakananDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MakananDataGrid_CellContentClick);
             // 
-            // IdMakananColumn
+            // textBox1
             // 
-            this.IdMakananColumn.HeaderText = "MenuId";
-            this.IdMakananColumn.Name = "IdMakananColumn";
-            this.IdMakananColumn.Visible = false;
+            this.textBox1.Location = new System.Drawing.Point(418, 313);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(231, 30);
+            this.textBox1.TabIndex = 30;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // MenuNameColumn
+            // label4
             // 
-            this.MenuNameColumn.HeaderText = "Menu";
-            this.MenuNameColumn.Name = "MenuNameColumn";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(343, 316);
+            this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 25);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Menu";
             // 
-            // MenuQtyColumn
+            // CariButton
             // 
-            this.MenuQtyColumn.HeaderText = "Kuantitas";
-            this.MenuQtyColumn.Name = "MenuQtyColumn";
+            this.CariButton.Location = new System.Drawing.Point(566, 353);
+            this.CariButton.Name = "CariButton";
+            this.CariButton.Size = new System.Drawing.Size(83, 41);
+            this.CariButton.TabIndex = 31;
+            this.CariButton.Text = "Cari";
+            this.CariButton.UseVisualStyleBackColor = true;
+            this.CariButton.Click += new System.EventHandler(this.CariButton_Click);
             // 
-            // MenuHargaColumn
+            // label3
             // 
-            this.MenuHargaColumn.HeaderText = "Harga";
-            this.MenuHargaColumn.Name = "MenuHargaColumn";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(726, 311);
+            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 25);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Nama";
             // 
-            // MenuTotalColumn
+            // DeleteButton
             // 
-            this.MenuTotalColumn.HeaderText = "Total";
-            this.MenuTotalColumn.Name = "MenuTotalColumn";
+            this.DeleteButton.Location = new System.Drawing.Point(1059, 374);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(88, 47);
+            this.DeleteButton.TabIndex = 32;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
-            // MenuMinumanColumn
+            // ColMId
             // 
-            this.MenuMinumanColumn.HeaderText = "Menu";
-            this.MenuMinumanColumn.Name = "MenuMinumanColumn";
+            this.ColMId.DataPropertyName = "MenuId";
+            this.ColMId.HeaderText = "MenuId";
+            this.ColMId.Name = "ColMId";
+            this.ColMId.Visible = false;
             // 
-            // HargaMinumanColumn
+            // ColName
             // 
-            this.HargaMinumanColumn.HeaderText = "Harga";
-            this.HargaMinumanColumn.Name = "HargaMinumanColumn";
+            this.ColName.DataPropertyName = "Name";
+            this.ColName.HeaderText = "Name";
+            this.ColName.Name = "ColName";
             // 
-            // IdMinumanColumn
+            // ColPrice
             // 
-            this.IdMinumanColumn.HeaderText = "MenuId";
-            this.IdMinumanColumn.Name = "IdMinumanColumn";
-            this.IdMinumanColumn.Visible = false;
+            this.ColPrice.DataPropertyName = "price";
+            this.ColPrice.HeaderText = "price";
+            this.ColPrice.Name = "ColPrice";
             // 
-            // PhotoMinumanColumn
+            // ColPhoto
             // 
-            this.PhotoMinumanColumn.HeaderText = "Photo";
-            this.PhotoMinumanColumn.Name = "PhotoMinumanColumn";
-            this.PhotoMinumanColumn.Visible = false;
+            this.ColPhoto.DataPropertyName = "photo";
+            this.ColPhoto.HeaderText = "photo";
+            this.ColPhoto.Name = "ColPhoto";
+            this.ColPhoto.Visible = false;
             // 
-            // PhotoMakananColumn
+            // ColPath
             // 
-            this.PhotoMakananColumn.HeaderText = "Photo";
-            this.PhotoMakananColumn.Name = "PhotoMakananColumn";
-            this.PhotoMakananColumn.Visible = false;
+            this.ColPath.DataPropertyName = "PhotoPath";
+            this.ColPath.HeaderText = "PhotoPath";
+            this.ColPath.Name = "ColPath";
+            this.ColPath.Visible = false;
+            // 
+            // menuInformationBindingSource
+            // 
+            this.menuInformationBindingSource.DataSource = typeof(RestaurantKuUI.SupportThings.MenuInformation);
             // 
             // OrderForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Coral;
-            this.ClientSize = new System.Drawing.Size(1083, 540);
+            this.ClientSize = new System.Drawing.Size(1159, 746);
+            this.Controls.Add(this.AddDataButton);
+            this.Controls.Add(this.DeleteButton);
+            this.Controls.Add(this.CariButton);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.PaymentProcessButton);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.MakananPB);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.QtyMinumanTextBox);
-            this.Controls.Add(this.HargaMinumanTextBox);
-            this.Controls.Add(this.MenuMinumanTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.TotalHargaLabel);
             this.Controls.Add(this.MakananDataGrid);
-            this.Controls.Add(this.MinumanPB);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.QtyMakananTextBox);
             this.Controls.Add(this.HargaMakananTextBox);
             this.Controls.Add(this.MenuMakananTextBox);
-            this.Controls.Add(this.MenuQtyLabel);
-            this.Controls.Add(this.MenuPriceLabel);
-            this.Controls.Add(this.MenuNameLabel);
-            this.Controls.Add(this.MinumanDataGrid);
             this.Controls.Add(this.OrderFormLabel);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Name = "OrderForm";
             this.Text = "Order Form";
-            ((System.ComponentModel.ISupportInitialize)(this.MinumanDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MinumanPB)).EndInit();
+            this.Load += new System.EventHandler(this.OrderForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MakananPB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MakananDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuInformationBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,37 +310,27 @@
         #endregion
 
         private System.Windows.Forms.Label OrderFormLabel;
-        private System.Windows.Forms.DataGridView MinumanDataGrid;
-        private System.Windows.Forms.Label MenuNameLabel;
-        private System.Windows.Forms.Label MenuPriceLabel;
-        private System.Windows.Forms.Label MenuQtyLabel;
         private System.Windows.Forms.TextBox MenuMakananTextBox;
         private System.Windows.Forms.TextBox HargaMakananTextBox;
         private System.Windows.Forms.TextBox QtyMakananTextBox;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox MinumanPB;
-        private System.Windows.Forms.PictureBox MakananPB;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox QtyMinumanTextBox;
-        private System.Windows.Forms.TextBox HargaMinumanTextBox;
-        private System.Windows.Forms.TextBox MenuMinumanTextBox;
+        private System.Windows.Forms.Button AddDataButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView MakananDataGrid;
+        private System.Windows.Forms.Label TotalHargaLabel;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button PaymentProcessButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MenuMakananColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HargaMakananColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdMakananColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MenuNameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MenuQtyColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MenuHargaColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MenuTotalColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MenuMinumanColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HargaMinumanColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdMinumanColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhotoMinumanColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhotoMakananColumn;
+        private System.Windows.Forms.PictureBox MakananPB;
+        private System.Windows.Forms.DataGridView MakananDataGrid;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button CariButton;
+        private System.Windows.Forms.BindingSource menuInformationBindingSource;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColPrice;
+        private System.Windows.Forms.DataGridViewImageColumn ColPhoto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColPath;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }

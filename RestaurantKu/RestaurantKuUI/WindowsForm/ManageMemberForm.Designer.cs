@@ -135,6 +135,7 @@
             this.MemberPasswordText.Location = new System.Drawing.Point(186, 386);
             this.MemberPasswordText.Margin = new System.Windows.Forms.Padding(2);
             this.MemberPasswordText.Name = "MemberPasswordText";
+            this.MemberPasswordText.PasswordChar = '*';
             this.MemberPasswordText.Size = new System.Drawing.Size(150, 26);
             this.MemberPasswordText.TabIndex = 8;
             // 
@@ -256,7 +257,6 @@
             this.JoinDateTime.Name = "JoinDateTime";
             this.JoinDateTime.Size = new System.Drawing.Size(313, 26);
             this.JoinDateTime.TabIndex = 16;
-            this.JoinDateTime.ValueChanged += new System.EventHandler(this.JoinDateTime_ValueChanged);
             // 
             // DataGridM
             // 

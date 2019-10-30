@@ -48,13 +48,13 @@
             this.CariDataButton = new System.Windows.Forms.Button();
             this.EmployeeIdLabel = new System.Windows.Forms.Label();
             this.EmpDataGrid = new System.Windows.Forms.DataGridView();
+            this.employeeInformationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeInformationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.EmpDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeInformationBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -134,6 +134,7 @@
             this.EmployeePasswordTextBox.Location = new System.Drawing.Point(198, 319);
             this.EmployeePasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.EmployeePasswordTextBox.Name = "EmployeePasswordTextBox";
+            this.EmployeePasswordTextBox.PasswordChar = '*';
             this.EmployeePasswordTextBox.Size = new System.Drawing.Size(135, 26);
             this.EmployeePasswordTextBox.TabIndex = 8;
             this.EmployeePasswordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.EmployeePasswordTextBox_Validating);
@@ -243,6 +244,10 @@
             this.EmpDataGrid.TabIndex = 19;
             this.EmpDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EmpDataGrid_CellContentClick_1);
             // 
+            // employeeInformationBindingSource
+            // 
+            this.employeeInformationBindingSource.DataSource = typeof(RestaurantKuUI.SupportThings.EmployeeInformation);
+            // 
             // ColId
             // 
             this.ColId.DataPropertyName = "EmployeeId";
@@ -267,6 +272,7 @@
             this.ColPassword.DataPropertyName = "EmployeePassword";
             this.ColPassword.HeaderText = "Password";
             this.ColPassword.Name = "ColPassword";
+            this.ColPassword.Visible = false;
             // 
             // ColNumber
             // 
@@ -279,10 +285,6 @@
             this.ColPosition.DataPropertyName = "EmployeePosition";
             this.ColPosition.HeaderText = "Position";
             this.ColPosition.Name = "ColPosition";
-            // 
-            // employeeInformationBindingSource
-            // 
-            this.employeeInformationBindingSource.DataSource = typeof(RestaurantKuUI.SupportThings.EmployeeInformation);
             // 
             // ManageEmployeeForm
             // 

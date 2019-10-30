@@ -230,6 +230,24 @@
       <Parameter Name="Path" Mode="In" Type="String" />
       <Parameter Name="task" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="SpDetailOrder_Action">
+      <Parameter Name="DetailId" Mode="In" Type="Int32" />
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+      <Parameter Name="MenuId" Mode="In" Type="Int32" />
+      <Parameter Name="Qty" Mode="In" Type="Int32" />
+      <Parameter Name="Total" Mode="In" Type="Int32" />
+      <Parameter Name="status" Mode="In" Type="String" />
+      <Parameter Name="task" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spMsHeadOrder_Action">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+      <Parameter Name="EmployeeId" Mode="In" Type="String" />
+      <Parameter Name="MemberId" Mode="In" Type="Int32" />
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Payment" Mode="In" Type="String" />
+      <Parameter Name="Bank" Mode="In" Type="String" />
+      <Parameter Name="task" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />

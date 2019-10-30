@@ -162,5 +162,7 @@
     <FunctionImportMapping FunctionImportName="spMsEmployee_Action" FunctionName="RestuarankuModels.Store.spMsEmployee_Action" />
     <FunctionImportMapping FunctionImportName="spMsMember_Action" FunctionName="RestuarankuModels.Store.spMsMember_Action" />
     <FunctionImportMapping FunctionImportName="spMsMenu_Action" FunctionName="RestuarankuModels.Store.spMsMenu_Action" />
+    <FunctionImportMapping FunctionImportName="SpDetailOrder_Action" FunctionName="RestuarankuModels.Store.SpDetailOrder_Action" />
+    <FunctionImportMapping FunctionImportName="spMsHeadOrder_Action" FunctionName="RestuarankuModels.Store.spMsHeadOrder_Action" />
   </EntityContainerMapping>
 </Mapping>

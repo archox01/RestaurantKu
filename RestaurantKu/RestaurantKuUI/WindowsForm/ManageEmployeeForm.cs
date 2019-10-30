@@ -278,18 +278,23 @@ namespace RestaurantKuUI
 
         private void CariEmployee()
         {
-            EmployeeRepository EmpRep = new EmployeeRepository();
-            List<EmployeeInformation> GetRepost = EmpRep.GetEmpData().ToList();
+            try {
+                EmployeeRepository EmpRep = new EmployeeRepository();
+                List<EmployeeInformation> GetRepost = EmpRep.GetEmpData().ToList();
 
-            var GetData = (from s in GetRepost where s.EmployeeId == EmployeeIdTextBox.Text select s).First();
-            EmployeeEmailTextBox.Text = GetData.EmployeeEmail;
-            EmployeeNameTextBox.Text = GetData.EmployeeName;
-            EmployeePasswordTextBox.Text = GetData.EmployeePassword;
-            EmployeePositionValue.Text = GetData.EmployeePosition;
-            EmployeeHandphoneTextBox.Text = GetData.EmployeeeHandPhone;
+                var GetData = (from s in GetRepost where s.EmployeeId == EmployeeIdTextBox.Text select s).First();
+                EmployeeEmailTextBox.Text = GetData.EmployeeEmail;
+                EmployeeNameTextBox.Text = GetData.EmployeeName;
+                EmployeePasswordTextBox.Text = GetData.EmployeePassword;
+                EmployeePositionValue.Text = GetData.EmployeePosition;
+                EmployeeHandphoneTextBox.Text = GetData.EmployeeeHandPhone;
 
-            MessageBox.Show("Data Berhasil Di Perbaharui");
-          
+                MessageBox.Show("Data Berhasil Di Perbaharui");
+            }
+            catch
+            {
+                MessageBox.Show("Data Tidak Di temukan");
+            }
 
         }
 
@@ -301,12 +306,14 @@ namespace RestaurantKuUI
 
         private void DeleteDataButton_Click(object sender, EventArgs e)
         {
-            using(RestaurantkuContext Context = new RestaurantkuContext())
-            {
-                Context.spMsEmployee_Action(EmployeeIdTextBox.Text, null, null, null, null, null, "delete");
-            }
-            MessageBox.Show("Data sukses Di Hapus");
-            LoadDataGrid();
+            try {
+                using (RestaurantkuContext Context = new RestaurantkuContext())
+                {
+                    Context.spMsEmployee_Action(EmployeeIdTextBox.Text, null, null, null, null, null, "delete");
+                }
+                MessageBox.Show("Data sukses Di Hapus");
+                LoadDataGrid(); }
+            catch { MessageBox.Show("Id Tidak Dapat Di temukan"); }
         }
 
         private void UpdateDataButton_Click(object sender, EventArgs e)

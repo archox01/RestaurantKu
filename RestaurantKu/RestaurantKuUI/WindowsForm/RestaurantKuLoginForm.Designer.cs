@@ -88,6 +88,7 @@
             this.PasswordTextBoxValue.Location = new System.Drawing.Point(265, 107);
             this.PasswordTextBoxValue.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.PasswordTextBoxValue.Name = "PasswordTextBoxValue";
+            this.PasswordTextBoxValue.PasswordChar = '*';
             this.PasswordTextBoxValue.Size = new System.Drawing.Size(150, 29);
             this.PasswordTextBoxValue.TabIndex = 4;
             // 
@@ -108,6 +109,7 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = resources.GetString("groupBox1.Text");
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // LoginButton
             // 

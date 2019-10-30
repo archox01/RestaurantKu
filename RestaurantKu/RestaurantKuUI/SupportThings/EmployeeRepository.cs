@@ -9,7 +9,7 @@ namespace RestaurantKuUI.SupportThings
 {
     public class EmployeeRepository
     {
-        
+
         public List<EmployeeInformation> GetEmpData()
         {
             using (var Context = new RestaurantkuContext())
@@ -24,13 +24,13 @@ namespace RestaurantKuUI.SupportThings
                     EmployeePosition = a.position
 
                 }).ToList();
-                
+
             }
 
         }
         public List<MemberInformation> MemberInfo()
         {
-            using(var Context = new RestaurantkuContext())
+            using (var Context = new RestaurantkuContext())
             {
                 return Context.msmembers.Select(a => new MemberInformation()
                 {
@@ -45,13 +45,13 @@ namespace RestaurantKuUI.SupportThings
                     CCNumber = a.CCNumber,
                     Address = a.Address,
                     Deleted = a.Deleted
-                    
+
                 }).ToList();
             }
         }
         public List<MenuInformation> MenuInfo()
         {
-            using(var Context = new RestaurantkuContext())
+            using (var Context = new RestaurantkuContext())
             {
                 return Context.msmenus.Select(a => new MenuInformation()
                 {
@@ -60,11 +60,42 @@ namespace RestaurantKuUI.SupportThings
                     price = a.price,
                     photo = a.photo,
                     PhotoPath = a.path
-                 
+
                 }).ToList();
             }
         }
-      
-        
+        public List<HeaderOrderInformation> HeaderInfo()
+        {
+            using(var Context = new RestaurantkuContext())
+            {
+                return Context.headorders.Select(a => new HeaderOrderInformation()
+                {
+                    orderid = a.orderid,
+                    employeeid = a.employeeid,
+                    bank = a.bank,
+                    date = a.date,
+                    memberid = a.memberid,
+                    payment = a.payment
+                }).ToList();
+            }
+        }
+        public List<DetailOrderInformation> DetailInfo()
+        {
+            using (var Context = new RestaurantkuContext())
+            {
+                return Context.detailorders.Select(a => new DetailOrderInformation()
+                {
+                    detailid = a.detailid,
+                    orderid = a.orderid,
+                    menuid = a.menuid,
+                    qty = a.qty,
+                    total = a.total,
+                    status = a.status
+                }).ToList();
+                
+            }
+        }
+       
+  
     }
 }

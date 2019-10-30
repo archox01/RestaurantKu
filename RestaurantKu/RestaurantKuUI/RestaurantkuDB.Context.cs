@@ -321,5 +321,71 @@ namespace RestaurantKuUI
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spMsMenu_Action", menuIdParameter, nameParameter, priceParameter, photoParameter, pathParameter, taskParameter);
         }
+    
+        public virtual int SpDetailOrder_Action(Nullable<int> detailId, Nullable<int> orderId, Nullable<int> menuId, Nullable<int> qty, Nullable<int> total, string status, string task)
+        {
+            var detailIdParameter = detailId.HasValue ?
+                new ObjectParameter("DetailId", detailId) :
+                new ObjectParameter("DetailId", typeof(int));
+    
+            var orderIdParameter = orderId.HasValue ?
+                new ObjectParameter("OrderId", orderId) :
+                new ObjectParameter("OrderId", typeof(int));
+    
+            var menuIdParameter = menuId.HasValue ?
+                new ObjectParameter("MenuId", menuId) :
+                new ObjectParameter("MenuId", typeof(int));
+    
+            var qtyParameter = qty.HasValue ?
+                new ObjectParameter("Qty", qty) :
+                new ObjectParameter("Qty", typeof(int));
+    
+            var totalParameter = total.HasValue ?
+                new ObjectParameter("Total", total) :
+                new ObjectParameter("Total", typeof(int));
+    
+            var statusParameter = status != null ?
+                new ObjectParameter("status", status) :
+                new ObjectParameter("status", typeof(string));
+    
+            var taskParameter = task != null ?
+                new ObjectParameter("task", task) :
+                new ObjectParameter("task", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SpDetailOrder_Action", detailIdParameter, orderIdParameter, menuIdParameter, qtyParameter, totalParameter, statusParameter, taskParameter);
+        }
+    
+        public virtual int spMsHeadOrder_Action(Nullable<int> orderId, string employeeId, Nullable<int> memberId, Nullable<System.DateTime> date, string payment, string bank, string task)
+        {
+            var orderIdParameter = orderId.HasValue ?
+                new ObjectParameter("OrderId", orderId) :
+                new ObjectParameter("OrderId", typeof(int));
+    
+            var employeeIdParameter = employeeId != null ?
+                new ObjectParameter("EmployeeId", employeeId) :
+                new ObjectParameter("EmployeeId", typeof(string));
+    
+            var memberIdParameter = memberId.HasValue ?
+                new ObjectParameter("MemberId", memberId) :
+                new ObjectParameter("MemberId", typeof(int));
+    
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("Date", date) :
+                new ObjectParameter("Date", typeof(System.DateTime));
+    
+            var paymentParameter = payment != null ?
+                new ObjectParameter("Payment", payment) :
+                new ObjectParameter("Payment", typeof(string));
+    
+            var bankParameter = bank != null ?
+                new ObjectParameter("Bank", bank) :
+                new ObjectParameter("Bank", typeof(string));
+    
+            var taskParameter = task != null ?
+                new ObjectParameter("task", task) :
+                new ObjectParameter("task", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spMsHeadOrder_Action", orderIdParameter, employeeIdParameter, memberIdParameter, dateParameter, paymentParameter, bankParameter, taskParameter);
+        }
     }
 }

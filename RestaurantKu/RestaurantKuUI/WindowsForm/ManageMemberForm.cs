@@ -154,14 +154,14 @@ namespace RestaurantKuUI
                 {
                     if (e.RowIndex > 0)
                     {
+                        string DateGet = row.Cells["ColJoin"].Value.ToString();
                         MemberIdTextBox.Text = row.Cells["ColId"].Value.ToString();
                         MemberNameText.Text = row.Cells["ColName"].Value.ToString();
                         MemberEmailText.Text = row.Cells["ColEmail"].Value.ToString();
                         MemberPasswordText.Text = row.Cells["ColPassword"].Value.ToString();
-                        JoinDateTime.Text = row.Cells["ColDate"].Value.ToString();
+                        JoinDateTime.Text = row.Cells["ColJoin"].Value.ToString();
                         CellNumberText.Text = row.Cells["ColHP"].Value.ToString();
                         AddressText.Text = row.Cells["ColAddress"].Value.ToString();
-                        col.SortMode = DataGridViewColumnSortMode.NotSortable;
 
                     }
                 }

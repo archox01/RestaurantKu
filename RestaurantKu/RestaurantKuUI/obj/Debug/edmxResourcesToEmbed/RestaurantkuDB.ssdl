@@ -148,6 +148,15 @@
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SpDetailOrder_Action" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DetailId" Type="int" Mode="In" />
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+    <Parameter Name="MenuId" Type="int" Mode="In" />
+    <Parameter Name="Qty" Type="int" Mode="In" />
+    <Parameter Name="Total" Type="int" Mode="In" />
+    <Parameter Name="status" Type="nvarchar" Mode="In" />
+    <Parameter Name="task" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="spGetEmployeeData_All" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spHeaderOrder_GetByDetailId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="OrderId" Type="nvarchar" Mode="In" />
@@ -166,6 +175,15 @@
   </Function>
   <Function Name="spMsEmployee_GetByHeaderOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="EmployeeId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spMsHeadOrder_Action" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+    <Parameter Name="EmployeeId" Type="nvarchar" Mode="In" />
+    <Parameter Name="MemberId" Type="int" Mode="In" />
+    <Parameter Name="Date" Type="date" Mode="In" />
+    <Parameter Name="Payment" Type="nvarchar" Mode="In" />
+    <Parameter Name="Bank" Type="nvarchar" Mode="In" />
+    <Parameter Name="task" Type="varchar" Mode="In" />
   </Function>
   <Function Name="spMsMember_Action" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MemberId" Type="int" Mode="In" />

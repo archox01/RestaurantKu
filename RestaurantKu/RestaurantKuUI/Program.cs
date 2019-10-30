@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantKuUI.WindowsForm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace RestaurantKuUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ManageMenuForm());
+            Application.Run(new DialogPembeli());
             
         }
     }

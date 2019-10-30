@@ -35,7 +35,7 @@ namespace RestaurantKuUI
         {
             EmployeeRepository Repost = new EmployeeRepository();
             List<MenuInformation> GetData = Repost.MenuInfo().ToList();
-            this.DGMenu.DataSource = GetData;
+            DGMenu.DataSource = GetData;
         }
         private void ManageMenuForm_Load(object sender, EventArgs e)
         {
@@ -87,8 +87,18 @@ namespace RestaurantKuUI
         private void DGMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow Row = new DataGridViewRow();
+            MenuIdText.Text = DGMenu.SelectedCells[0].Value.ToString();
+            NamaText.Text = DGMenu.SelectedCells[1].Value.ToString();
+            HargaText.Text = DGMenu.SelectedCells[2].Value.ToString();
+            PathText.Text = DGMenu.SelectedCells[4].Value.ToString();
+            int Menuids = Convert.ToInt32(MenuIdText.Text);
+            EmployeeRepository Repost = new EmployeeRepository();
+            List<MenuInformation> MenuInfo = Repost.MenuInfo().ToList();
+            var GetPict = (from s in MenuInfo where s.MenuId == Menuids select s).First();
 
-           
+            PictureBox.Image = arraytoimg(GetPict.photo.ToArray());
+
+
         }
 
         private void InsertMenuButton_Click(object sender, EventArgs e)

@@ -153,6 +153,15 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SpDetailOrder_Action" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DetailId" Type="int" Mode="In" />
+          <Parameter Name="OrderId" Type="int" Mode="In" />
+          <Parameter Name="MenuId" Type="int" Mode="In" />
+          <Parameter Name="Qty" Type="int" Mode="In" />
+          <Parameter Name="Total" Type="int" Mode="In" />
+          <Parameter Name="status" Type="nvarchar" Mode="In" />
+          <Parameter Name="task" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="spGetEmployeeData_All" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spHeaderOrder_GetByDetailId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="OrderId" Type="nvarchar" Mode="In" />
@@ -171,6 +180,15 @@
         </Function>
         <Function Name="spMsEmployee_GetByHeaderOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="EmployeeId" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spMsHeadOrder_Action" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OrderId" Type="int" Mode="In" />
+          <Parameter Name="EmployeeId" Type="nvarchar" Mode="In" />
+          <Parameter Name="MemberId" Type="int" Mode="In" />
+          <Parameter Name="Date" Type="date" Mode="In" />
+          <Parameter Name="Payment" Type="nvarchar" Mode="In" />
+          <Parameter Name="Bank" Type="nvarchar" Mode="In" />
+          <Parameter Name="task" Type="varchar" Mode="In" />
         </Function>
         <Function Name="spMsMember_Action" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MemberId" Type="int" Mode="In" />
@@ -455,6 +473,24 @@
             <Parameter Name="Path" Mode="In" Type="String" />
             <Parameter Name="task" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="SpDetailOrder_Action">
+            <Parameter Name="DetailId" Mode="In" Type="Int32" />
+            <Parameter Name="OrderId" Mode="In" Type="Int32" />
+            <Parameter Name="MenuId" Mode="In" Type="Int32" />
+            <Parameter Name="Qty" Mode="In" Type="Int32" />
+            <Parameter Name="Total" Mode="In" Type="Int32" />
+            <Parameter Name="status" Mode="In" Type="String" />
+            <Parameter Name="task" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spMsHeadOrder_Action">
+            <Parameter Name="OrderId" Mode="In" Type="Int32" />
+            <Parameter Name="EmployeeId" Mode="In" Type="String" />
+            <Parameter Name="MemberId" Mode="In" Type="Int32" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Payment" Mode="In" Type="String" />
+            <Parameter Name="Bank" Mode="In" Type="String" />
+            <Parameter Name="task" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -673,6 +709,8 @@
           <FunctionImportMapping FunctionImportName="spMsEmployee_Action" FunctionName="RestuarankuModels.Store.spMsEmployee_Action" />
           <FunctionImportMapping FunctionImportName="spMsMember_Action" FunctionName="RestuarankuModels.Store.spMsMember_Action" />
           <FunctionImportMapping FunctionImportName="spMsMenu_Action" FunctionName="RestuarankuModels.Store.spMsMenu_Action" />
+          <FunctionImportMapping FunctionImportName="SpDetailOrder_Action" FunctionName="RestuarankuModels.Store.SpDetailOrder_Action" />
+          <FunctionImportMapping FunctionImportName="spMsHeadOrder_Action" FunctionName="RestuarankuModels.Store.spMsHeadOrder_Action" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
