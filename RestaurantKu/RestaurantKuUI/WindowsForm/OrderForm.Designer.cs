@@ -41,17 +41,11 @@
             this.PaymentProcessButton = new System.Windows.Forms.Button();
             this.MakananPB = new System.Windows.Forms.PictureBox();
             this.MakananDataGrid = new System.Windows.Forms.DataGridView();
+            this.menuInformationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.CariButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.DeleteButton = new System.Windows.Forms.Button();
-            this.ColMId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColPhoto = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menuInformationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MakananPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MakananDataGrid)).BeginInit();
@@ -99,7 +93,7 @@
             this.AddDataButton.Location = new System.Drawing.Point(1059, 313);
             this.AddDataButton.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.AddDataButton.Name = "AddDataButton";
-            this.AddDataButton.Size = new System.Drawing.Size(79, 47);
+            this.AddDataButton.Size = new System.Drawing.Size(90, 47);
             this.AddDataButton.TabIndex = 26;
             this.AddDataButton.Text = "Add";
             this.AddDataButton.UseVisualStyleBackColor = true;
@@ -146,6 +140,7 @@
             this.dataGridView2.RowTemplate.Height = 28;
             this.dataGridView2.Size = new System.Drawing.Size(1124, 196);
             this.dataGridView2.TabIndex = 28;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // PaymentProcessButton
             // 
@@ -171,12 +166,6 @@
             // 
             this.MakananDataGrid.AutoGenerateColumns = false;
             this.MakananDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MakananDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColMId,
-            this.ColName,
-            this.ColPrice,
-            this.ColPhoto,
-            this.ColPath});
             this.MakananDataGrid.DataSource = this.menuInformationBindingSource;
             this.MakananDataGrid.Location = new System.Drawing.Point(12, 75);
             this.MakananDataGrid.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
@@ -188,31 +177,21 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(418, 313);
+            this.textBox1.Location = new System.Drawing.Point(418, 356);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(231, 30);
+            this.textBox1.Size = new System.Drawing.Size(271, 30);
             this.textBox1.TabIndex = 30;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(343, 316);
+            this.label4.Location = new System.Drawing.Point(343, 359);
             this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 25);
             this.label4.TabIndex = 20;
             this.label4.Text = "Menu";
-            // 
-            // CariButton
-            // 
-            this.CariButton.Location = new System.Drawing.Point(566, 353);
-            this.CariButton.Name = "CariButton";
-            this.CariButton.Size = new System.Drawing.Size(83, 41);
-            this.CariButton.TabIndex = 31;
-            this.CariButton.Text = "Cari";
-            this.CariButton.UseVisualStyleBackColor = true;
-            this.CariButton.Click += new System.EventHandler(this.CariButton_Click);
             // 
             // label3
             // 
@@ -234,43 +213,6 @@
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
-            // ColMId
-            // 
-            this.ColMId.DataPropertyName = "MenuId";
-            this.ColMId.HeaderText = "MenuId";
-            this.ColMId.Name = "ColMId";
-            this.ColMId.Visible = false;
-            // 
-            // ColName
-            // 
-            this.ColName.DataPropertyName = "Name";
-            this.ColName.HeaderText = "Name";
-            this.ColName.Name = "ColName";
-            // 
-            // ColPrice
-            // 
-            this.ColPrice.DataPropertyName = "price";
-            this.ColPrice.HeaderText = "price";
-            this.ColPrice.Name = "ColPrice";
-            // 
-            // ColPhoto
-            // 
-            this.ColPhoto.DataPropertyName = "photo";
-            this.ColPhoto.HeaderText = "photo";
-            this.ColPhoto.Name = "ColPhoto";
-            this.ColPhoto.Visible = false;
-            // 
-            // ColPath
-            // 
-            this.ColPath.DataPropertyName = "PhotoPath";
-            this.ColPath.HeaderText = "PhotoPath";
-            this.ColPath.Name = "ColPath";
-            this.ColPath.Visible = false;
-            // 
-            // menuInformationBindingSource
-            // 
-            this.menuInformationBindingSource.DataSource = typeof(RestaurantKuUI.SupportThings.MenuInformation);
-            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -279,7 +221,6 @@
             this.ClientSize = new System.Drawing.Size(1159, 746);
             this.Controls.Add(this.AddDataButton);
             this.Controls.Add(this.DeleteButton);
-            this.Controls.Add(this.CariButton);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.PaymentProcessButton);
             this.Controls.Add(this.dataGridView2);
@@ -323,7 +264,6 @@
         private System.Windows.Forms.DataGridView MakananDataGrid;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button CariButton;
         private System.Windows.Forms.BindingSource menuInformationBindingSource;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColMId;

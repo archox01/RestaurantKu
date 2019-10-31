@@ -17,7 +17,7 @@ namespace RestaurantKuUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DialogPembeli());
+            Application.Run(new OrderForm());
             
         }
     }

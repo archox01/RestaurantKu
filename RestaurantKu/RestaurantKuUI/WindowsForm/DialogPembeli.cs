@@ -21,32 +21,18 @@ namespace RestaurantKuUI.WindowsForm
         RestaurantkuContext Context = new RestaurantkuContext();
         DataTable DTable = new DataTable();
         public static string id_member;
-        public  string getid()
+        public static string getid()
         {
             return id_member;
         }
-        private void DataTable()
-        {
-            DTable.Columns.Add("Id");
-            DTable.Columns.Add("Menu");
-            DTable.Columns.Add("Qty");
-            DTable.Columns.Add("Price");
-            DTable.Columns.Add("Total");
-            dataGridView1.DataSource = DTable;
-        }
-        private void SearchButton_Click(object sender, EventArgs e)
-        {
-            EmployeeRepository Repost = new EmployeeRepository();
-            List<MemberInformation> Info = Repost.MemberInfo().ToList();
-            var query = (from s in Info select s);
-            
-        }
-
-
+ 
 
         private void TB_TextChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = Context.msmembers.Where(x => x.name.Contains(TB.Text) || x.email.Contains(TB.Text)).ToList(); 
+            EmployeeRepository Repost = new EmployeeRepository();
+            List<MemberInformation> info = Repost.MemberInfo().ToList();
+            //dataGridView1.DataSource = Context.msmembers.Where(x => x.name.Contains(TB.Text) || x.email.Contains(TB.Text)).ToList(); 
+            dataGridView1.DataSource = info.Where(x => x.MemberName.Contains(TB.Text) || x.MemberEmail.Contains(TB.Text)).ToList();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -56,12 +42,36 @@ namespace RestaurantKuUI.WindowsForm
             this.Close();
         }
 
-        private void DialogPembeli_Load(object sender, EventArgs e)
+        private void LoadData()
         {
             EmployeeRepository Repost = new EmployeeRepository();
             List<MemberInformation> Info = Repost.MemberInfo();
             var GetData = (from s in Info select s).ToList();
             dataGridView1.DataSource = GetData;
+        }
+        private void DialogPembeli_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void TB_Leave(object sender, EventArgs e)
+        {
+            if(TB.Text == "")
+            {
+                TB.Text = "Masukkan Email / Nama";
+                TB.ForeColor = Color.Silver;
+            }
+          
+        }
+
+        private void TB_Enter(object sender, EventArgs e)
+        {
+            if(TB.Text == "Masukkan Email / Nama")
+            {
+                TB.Text = "";
+                TB.ForeColor = Color.Black;
+            }
+           
         }
     }
    

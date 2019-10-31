@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RestaurantKuUI.SupportThings;
 using System.IO;
+using RestaurantKuUI.WindowsForm;
 
 namespace RestaurantKuUI
 {
@@ -124,7 +125,17 @@ namespace RestaurantKuUI
 
             using(RestaurantkuContext Context = new RestaurantkuContext())
             {
-                ////Context.spMsHeadOrder_Action(Urut,RestaurantKuLoginForm.getid,)
+                Context.spMsHeadOrder_Action(Convert.ToInt32(Urut),  RestaurantKuLoginForm.getid(),Convert.ToInt32(DialogPembeli.getid()), Convert.ToDateTime(DateTime.Now.ToString("yyyyMMdd")), "null", "null", "insert");
+            }
+        }
+        private void SaveDetail()
+        {
+            using(RestaurantkuContext Context = new RestaurantkuContext())
+            {
+                for (int i = 0; i < dataGridView2.Rows.Count - 1; i++) {
+                    Context.SpDetailOrder_Action(null, Convert.ToInt32(Urut), Convert.ToInt32(dataGridView2.Rows[i].Cells[0].Value), Convert.ToInt32(dataGridView2.Rows[i].Cells[2].Value), Convert.ToInt32(dataGridView2.Rows[i].Cells[4].Value), "Prepare", "insert");
+             }
+
             }
         }
     
@@ -151,6 +162,11 @@ namespace RestaurantKuUI
                 MakananDataGrid_CellContentClick(MakananDataGrid, new DataGridViewCellEventArgs(MakananDataGrid.CurrentCell.ColumnIndex, MakananDataGrid.CurrentRow.Index));
             }
             catch { }
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
 
