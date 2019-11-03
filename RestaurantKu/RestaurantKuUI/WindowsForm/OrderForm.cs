@@ -76,7 +76,7 @@ namespace RestaurantKuUI
 
         private void OrderForm_Load(object sender, EventArgs e)
         {
-            loaddata();
+            loaddata(); 
         }
 
     private void DeleteDG()
@@ -98,16 +98,16 @@ namespace RestaurantKuUI
         {
             using (RestaurantkuContext Context = new RestaurantkuContext())
             {
-                string Getdate;
+                long hitung;
                 EmployeeRepository repost = new EmployeeRepository();
                 List<HeaderOrderInformation> Info = repost.HeaderInfo().ToList();
-                var CheckData = (from s in Info where s.orderid >= 1 select s).Count();
+                var CheckData = (from s in Info where s.orderid != null select s).Count();
                 Info = Info.OrderByDescending(x => x.orderid).ToList();
                 if(CheckData >= 1)
                 {
                     
-                        var GetMaxid = Convert.ToInt64(Info.Max(s => s.orderid).ToString()) + 1;
-                        string autostr = "0000" + GetMaxid;
+                        hitung = Convert.ToInt64(Info.Max(s => s.orderid).ToString()) + 1;
+                        string autostr = "0000" + hitung;
                         Urut = DateTime.Now.ToString("yyyyMMdd") + autostr;
                     
                 }
@@ -125,7 +125,7 @@ namespace RestaurantKuUI
 
             using(RestaurantkuContext Context = new RestaurantkuContext())
             {
-                Context.spMsHeadOrder_Action(Convert.ToInt32(Urut),  RestaurantKuLoginForm.getid(),Convert.ToInt32(DialogPembeli.getid()), Convert.ToDateTime(DateTime.Now.ToString("yyyyMMdd")), "null", "null", "insert");
+                Context.spMsHeadOrder_Action(Urut,  RestaurantKuLoginForm.getid(),DialogPembeli.getid(), Convert.ToDateTime(DateTime.Now.ToString("yyyyMMdd")), "null", "null", "insert");
             }
         }
         private void SaveDetail()
@@ -133,7 +133,7 @@ namespace RestaurantKuUI
             using(RestaurantkuContext Context = new RestaurantkuContext())
             {
                 for (int i = 0; i < dataGridView2.Rows.Count - 1; i++) {
-                    Context.SpDetailOrder_Action(null, Convert.ToInt32(Urut), Convert.ToInt32(dataGridView2.Rows[i].Cells[0].Value), Convert.ToInt32(dataGridView2.Rows[i].Cells[2].Value), Convert.ToInt32(dataGridView2.Rows[i].Cells[4].Value), "Prepare", "insert");
+                    Context.SpDetailOrder_Action(null, Urut, Convert.ToInt32(dataGridView2.Rows[i].Cells[0].Value), Convert.ToInt32(dataGridView2.Rows[i].Cells[2].Value), Convert.ToInt32(dataGridView2.Rows[i].Cells[4].Value), "Prepare", "insert");
              }
 
             }
@@ -152,6 +152,11 @@ namespace RestaurantKuUI
         private void PaymentProcessButton_Click(object sender, EventArgs e)
         {
             AutoId();
+            SaveHeader();
+            SaveDetail();
+            Bersih();
+            DTable.Rows.Clear();
+            dataGridView2.Refresh();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

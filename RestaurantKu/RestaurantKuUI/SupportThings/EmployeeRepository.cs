@@ -95,6 +95,15 @@ namespace RestaurantKuUI.SupportThings
                 
             }
         }
+        public List<DetailOrderInformation> DetailJoint()
+        {
+            DetailOrderInformation info = new DetailOrderInformation();
+            using (var context = new RestaurantkuContext())
+            {
+                return this.DetailInfo();
+            }
+            
+        }
        
   
     }

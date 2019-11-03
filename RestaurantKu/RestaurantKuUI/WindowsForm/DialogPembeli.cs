@@ -20,8 +20,8 @@ namespace RestaurantKuUI.WindowsForm
         }
         RestaurantkuContext Context = new RestaurantkuContext();
         DataTable DTable = new DataTable();
-        public static string id_member;
-        public static string getid()
+        public static int id_member;
+        public static int getid()
         {
             return id_member;
         }
@@ -38,7 +38,7 @@ namespace RestaurantKuUI.WindowsForm
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow viewrow = dataGridView1.SelectedRows[0];
-            id_member = viewrow.Cells[0].ToString();
+            id_member = Convert.ToInt32(viewrow.Cells[0].ToString());
             this.Close();
         }
 

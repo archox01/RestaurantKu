@@ -15,7 +15,7 @@ namespace RestaurantKuUI
     public partial class detailorder
     {
         public int detailid { get; set; }
-        public int orderid { get; set; }
+        public string orderid { get; set; }
         public int menuid { get; set; }
         public int qty { get; set; }
         public int total { get; set; }

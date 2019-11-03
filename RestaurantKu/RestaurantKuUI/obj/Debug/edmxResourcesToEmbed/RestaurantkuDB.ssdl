@@ -5,7 +5,7 @@
       <PropertyRef Name="detailid" />
     </Key>
     <Property Name="detailid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="orderid" Type="int" Nullable="false" />
+    <Property Name="orderid" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="menuid" Type="int" Nullable="false" />
     <Property Name="qty" Type="int" Nullable="false" />
     <Property Name="total" Type="int" Nullable="false" />
@@ -15,7 +15,7 @@
     <Key>
       <PropertyRef Name="orderid" />
     </Key>
-    <Property Name="orderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderid" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="employeeid" Type="nvarchar" MaxLength="6" Nullable="false" />
     <Property Name="memberid" Type="int" Nullable="false" />
     <Property Name="date" Type="date" Nullable="false" />
@@ -150,15 +150,28 @@
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SpDetailOrder_Action" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DetailId" Type="int" Mode="In" />
-    <Parameter Name="OrderId" Type="int" Mode="In" />
+    <Parameter Name="OrderId" Type="nvarchar" Mode="In" />
     <Parameter Name="MenuId" Type="int" Mode="In" />
     <Parameter Name="Qty" Type="int" Mode="In" />
     <Parameter Name="Total" Type="int" Mode="In" />
     <Parameter Name="status" Type="nvarchar" Mode="In" />
     <Parameter Name="task" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="SpDetailOrder_Joint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DetailId" Type="int" Mode="In" />
+    <Parameter Name="OrderId" Type="nvarchar" Mode="In" />
+    <Parameter Name="MenuId" Type="int" Mode="In" />
+    <Parameter Name="Qty" Type="int" Mode="In" />
+    <Parameter Name="Total" Type="int" Mode="In" />
+    <Parameter Name="status" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="spGetEmployeeData_All" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spHeaderOrder_GetByDetailId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spHeaderOrder_Joint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="nvarchar" Mode="In" />
+    <Parameter Name="MemberId" Type="int" Mode="In" />
     <Parameter Name="OrderId" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="spMenu_GetByDetailId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -177,7 +190,7 @@
     <Parameter Name="EmployeeId" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="spMsHeadOrder_Action" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="OrderId" Type="int" Mode="In" />
+    <Parameter Name="OrderId" Type="nvarchar" Mode="In" />
     <Parameter Name="EmployeeId" Type="nvarchar" Mode="In" />
     <Parameter Name="MemberId" Type="int" Mode="In" />
     <Parameter Name="Date" Type="date" Mode="In" />

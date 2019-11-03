@@ -1,81 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="RestuarankuModelsStoreContainer" CdmEntityContainer="RestaurantkuContext">
-    <EntitySetMapping Name="detailorders">
-      <EntityTypeMapping TypeName="RestuarankuModels.detailorder">
-        <MappingFragment StoreEntitySet="detailorder">
-          <ScalarProperty Name="detailid" ColumnName="detailid" />
-          <ScalarProperty Name="orderid" ColumnName="orderid" />
-          <ScalarProperty Name="menuid" ColumnName="menuid" />
-          <ScalarProperty Name="qty" ColumnName="qty" />
-          <ScalarProperty Name="total" ColumnName="total" />
-          <ScalarProperty Name="status" ColumnName="status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="headorders">
-      <EntityTypeMapping TypeName="RestuarankuModels.headorder">
-        <MappingFragment StoreEntitySet="headorder">
-          <ScalarProperty Name="orderid" ColumnName="orderid" />
-          <ScalarProperty Name="employeeid" ColumnName="employeeid" />
-          <ScalarProperty Name="memberid" ColumnName="memberid" />
-          <ScalarProperty Name="date" ColumnName="date" />
-          <ScalarProperty Name="payment" ColumnName="payment" />
-          <ScalarProperty Name="bank" ColumnName="bank" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="msemployees">
-      <EntityTypeMapping TypeName="RestuarankuModels.msemployee">
-        <MappingFragment StoreEntitySet="msemployee">
-          <ScalarProperty Name="employeeid" ColumnName="employeeid" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="handphone" ColumnName="handphone" />
-          <ScalarProperty Name="position" ColumnName="position" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="msmembers">
-      <EntityTypeMapping TypeName="RestuarankuModels.msmember">
-        <MappingFragment StoreEntitySet="msmember">
-          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="AccNumber" ColumnName="AccNumber" />
-          <ScalarProperty Name="BankName" ColumnName="BankName" />
-          <ScalarProperty Name="CCNumber" ColumnName="CCNumber" />
-          <ScalarProperty Name="memberid" ColumnName="memberid" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="handphone" ColumnName="handphone" />
-          <ScalarProperty Name="joindate" ColumnName="joindate" />
-          <ScalarProperty Name="password" ColumnName="password" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="msmenus">
-      <EntityTypeMapping TypeName="RestuarankuModels.msmenu">
-        <MappingFragment StoreEntitySet="msmenu">
-          <ScalarProperty Name="menuid" ColumnName="menuid" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="photo" ColumnName="photo" />
-          <ScalarProperty Name="path" ColumnName="path" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="RestuarankuModels.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="RestuarankuModels.Store.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="RestuarankuModels.Store.sp_creatediagram" />
     <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="RestuarankuModels.Store.sp_dropdiagram" />
@@ -164,5 +89,104 @@
     <FunctionImportMapping FunctionImportName="spMsMenu_Action" FunctionName="RestuarankuModels.Store.spMsMenu_Action" />
     <FunctionImportMapping FunctionImportName="SpDetailOrder_Action" FunctionName="RestuarankuModels.Store.SpDetailOrder_Action" />
     <FunctionImportMapping FunctionImportName="spMsHeadOrder_Action" FunctionName="RestuarankuModels.Store.spMsHeadOrder_Action" />
+    <FunctionImportMapping FunctionImportName="SpDetailOrder_Joint" FunctionName="RestuarankuModels.Store.SpDetailOrder_Joint">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestuarankuModels.SpDetailOrder_Joint_Result">
+          <ScalarProperty Name="detailid" ColumnName="detailid" />
+          <ScalarProperty Name="orderid" ColumnName="orderid" />
+          <ScalarProperty Name="menuid" ColumnName="menuid" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spHeaderOrder_Joint" FunctionName="RestuarankuModels.Store.spHeaderOrder_Joint">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestuarankuModels.spHeaderOrder_Joint_Result">
+          <ScalarProperty Name="orderid" ColumnName="orderid" />
+          <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="payment" ColumnName="payment" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="detailorders">
+      <EntityTypeMapping TypeName="RestuarankuModels.detailorder">
+        <MappingFragment StoreEntitySet="detailorder">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="menuid" ColumnName="menuid" />
+          <ScalarProperty Name="orderid" ColumnName="orderid" />
+          <ScalarProperty Name="detailid" ColumnName="detailid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="headorders">
+      <EntityTypeMapping TypeName="RestuarankuModels.headorder">
+        <MappingFragment StoreEntitySet="headorder">
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="payment" ColumnName="payment" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+          <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+          <ScalarProperty Name="orderid" ColumnName="orderid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="msemployees">
+      <EntityTypeMapping TypeName="RestuarankuModels.msemployee">
+        <MappingFragment StoreEntitySet="msemployee">
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="handphone" ColumnName="handphone" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="msmembers">
+      <EntityTypeMapping TypeName="RestuarankuModels.msmember">
+        <MappingFragment StoreEntitySet="msmember">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="AccNumber" ColumnName="AccNumber" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="CCNumber" ColumnName="CCNumber" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="joindate" ColumnName="joindate" />
+          <ScalarProperty Name="handphone" ColumnName="handphone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="msmenus">
+      <EntityTypeMapping TypeName="RestuarankuModels.msmenu">
+        <MappingFragment StoreEntitySet="msmenu">
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="menuid" ColumnName="menuid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="RestuarankuModels.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

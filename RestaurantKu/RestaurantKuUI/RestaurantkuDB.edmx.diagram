@@ -5,16 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5f671c8bc1954f9cafc7ab8b214b0833" Name="Diagram1" ZoomLevel="96">
-        <EntityTypeShape EntityType="RestuarankuModels.detailorder" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="RestuarankuModels.headorder" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="RestuarankuModels.msemployee" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="RestuarankuModels.msmember" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="RestuarankuModels.msmenu" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="RestuarankuModels.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <AssociationConnector Association="RestuarankuModels.FK_detailorder_headorder" ManuallyRouted="false" />
-        <AssociationConnector Association="RestuarankuModels.FK_detailorder_msmenu" ManuallyRouted="false" />
-        <AssociationConnector Association="RestuarankuModels.FK_headorder_headorder" ManuallyRouted="false" />
-        <AssociationConnector Association="RestuarankuModels.FK_headorder_msmember" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RestuarankuModels.detailorder" Width="1.5" PointX="5.25" PointY="1.375" />
+        <EntityTypeShape EntityType="RestuarankuModels.headorder" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="RestuarankuModels.msemployee" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="RestuarankuModels.msmember" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="RestuarankuModels.msmenu" Width="1.5" PointX="3" PointY="5.625" />
+        <EntityTypeShape EntityType="RestuarankuModels.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" />
+        <AssociationConnector Association="RestuarankuModels.FK_detailorder_headorder" />
+        <AssociationConnector Association="RestuarankuModels.FK_detailorder_msmenu" />
+        <AssociationConnector Association="RestuarankuModels.FK_headorder_headorder" />
+        <AssociationConnector Association="RestuarankuModels.FK_headorder_msmember" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

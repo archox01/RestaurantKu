@@ -132,15 +132,7 @@
             this.ChangePasswordButton.TabIndex = 9;
             this.ChangePasswordButton.Text = "Change";
             this.ChangePasswordButton.UseVisualStyleBackColor = true;
-            // 
-            // CancelButton
-            // 
-            this.CancelButton.Location = new System.Drawing.Point(169, 456);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(156, 54);
-            this.CancelButton.TabIndex = 10;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
+
             // 
             // ChangePasswordForm
             // 
@@ -148,7 +140,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(918, 563);
-            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.ChangePasswordButton);
             this.Controls.Add(this.ConfirmPasswordValueTextBox);
             this.Controls.Add(this.NewPasswordValueTextBox);
@@ -180,6 +171,5 @@
         private System.Windows.Forms.TextBox NewPasswordValueTextBox;
         private System.Windows.Forms.TextBox ConfirmPasswordValueTextBox;
         private System.Windows.Forms.Button ChangePasswordButton;
-        private System.Windows.Forms.Button CancelButton;
     }
 }

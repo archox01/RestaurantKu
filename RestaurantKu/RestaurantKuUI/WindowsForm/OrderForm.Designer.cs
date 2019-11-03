@@ -41,11 +41,16 @@
             this.PaymentProcessButton = new System.Windows.Forms.Button();
             this.MakananPB = new System.Windows.Forms.PictureBox();
             this.MakananDataGrid = new System.Windows.Forms.DataGridView();
-            this.menuInformationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.DeleteButton = new System.Windows.Forms.Button();
+            this.menuInformationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ColMId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPhoto = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MakananPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MakananDataGrid)).BeginInit();
@@ -164,12 +169,21 @@
             // 
             // MakananDataGrid
             // 
+            this.MakananDataGrid.AllowUserToAddRows = false;
+            this.MakananDataGrid.AllowUserToDeleteRows = false;
             this.MakananDataGrid.AutoGenerateColumns = false;
             this.MakananDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MakananDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColMId,
+            this.ColName,
+            this.ColPrice,
+            this.ColPhoto,
+            this.ColPath});
             this.MakananDataGrid.DataSource = this.menuInformationBindingSource;
             this.MakananDataGrid.Location = new System.Drawing.Point(12, 75);
             this.MakananDataGrid.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.MakananDataGrid.Name = "MakananDataGrid";
+            this.MakananDataGrid.ReadOnly = true;
             this.MakananDataGrid.RowTemplate.Height = 28;
             this.MakananDataGrid.Size = new System.Drawing.Size(1126, 187);
             this.MakananDataGrid.TabIndex = 19;
@@ -212,6 +226,48 @@
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // menuInformationBindingSource
+            // 
+            this.menuInformationBindingSource.DataSource = typeof(RestaurantKuUI.SupportThings.MenuInformation);
+            // 
+            // ColMId
+            // 
+            this.ColMId.DataPropertyName = "MenuId";
+            this.ColMId.HeaderText = "MenuId";
+            this.ColMId.Name = "ColMId";
+            this.ColMId.ReadOnly = true;
+            this.ColMId.Visible = false;
+            // 
+            // ColName
+            // 
+            this.ColName.DataPropertyName = "Name";
+            this.ColName.HeaderText = "Name";
+            this.ColName.Name = "ColName";
+            this.ColName.ReadOnly = true;
+            // 
+            // ColPrice
+            // 
+            this.ColPrice.DataPropertyName = "price";
+            this.ColPrice.HeaderText = "Price";
+            this.ColPrice.Name = "ColPrice";
+            this.ColPrice.ReadOnly = true;
+            // 
+            // ColPhoto
+            // 
+            this.ColPhoto.DataPropertyName = "photo";
+            this.ColPhoto.HeaderText = "Photo";
+            this.ColPhoto.Name = "ColPhoto";
+            this.ColPhoto.ReadOnly = true;
+            this.ColPhoto.Visible = false;
+            // 
+            // ColPath
+            // 
+            this.ColPath.DataPropertyName = "PhotoPath";
+            this.ColPath.HeaderText = "PhotoPath";
+            this.ColPath.Name = "ColPath";
+            this.ColPath.ReadOnly = true;
+            this.ColPath.Visible = false;
             // 
             // OrderForm
             // 
@@ -264,13 +320,13 @@
         private System.Windows.Forms.DataGridView MakananDataGrid;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.BindingSource menuInformationBindingSource;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColMId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColPrice;
-        private System.Windows.Forms.DataGridViewImageColumn ColPhoto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColPath;
         private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColPath;
+        private System.Windows.Forms.BindingSource menuInformationBindingSource;
+        private System.Windows.Forms.DataGridViewImageColumn ColPhoto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColMId;
     }
 }

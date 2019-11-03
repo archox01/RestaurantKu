@@ -70,7 +70,7 @@ namespace RestaurantKuUI
                     MessageBox.Show("Periksa Kembali Email atau Password anda ");
                 }
                 }
-                catch(Exception a) { MessageBox.Show("Data Salah, Mohon Periksa Kembali"); }
+                catch { MessageBox.Show("Data Salah, Mohon Periksa Kembali"); }
 
             }
         }

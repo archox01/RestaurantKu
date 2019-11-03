@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SpDetailOrder_Joint_Result.cs">
+      <DependentUpon>RestaurantkuDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spHeaderOrder_Joint_Result.cs">
+      <DependentUpon>RestaurantkuDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="SupportThings\DetailOrderInformation.cs" />
     <Compile Include="SupportThings\EmployeeInformation.cs" />
     <Compile Include="SupportThings\EmployeeRepository.cs" />

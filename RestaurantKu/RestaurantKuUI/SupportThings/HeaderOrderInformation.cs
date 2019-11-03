@@ -8,7 +8,7 @@ namespace RestaurantKuUI.SupportThings
 {
     public class HeaderOrderInformation
     {
-        public int orderid { get; set; }
+        public string orderid { get; set; }
         public string employeeid { get; set; }
         public int memberid { get; set; }
         public System.DateTime date { get; set; }

@@ -74,4 +74,3 @@ C:\Users\Dell\Documents\Visual Studio 2015\Projects\RestaurantkuAPP\RestaurantKu
 C:\Users\Dell\Documents\Visual Studio 2015\Projects\RestaurantkuAPP\RestaurantKu\RestaurantKuUI\obj\Debug\RestaurantKuUI.ViewOrderForm.resources
 C:\Users\Dell\Documents\Visual Studio 2015\Projects\RestaurantkuAPP\RestaurantKu\RestaurantKuUI\obj\Debug\RestaurantKuUI.csproj.GenerateResource.Cache
 C:\Users\Dell\Documents\Visual Studio 2015\Projects\RestaurantkuAPP\RestaurantKu\RestaurantKuUI\obj\Debug\RestaurantKuUI.WindowsForm.DialogPembeli.resources
-C:\Users\Dell\Documents\Visual Studio 2015\Projects\RestaurantkuAPP\RestaurantKu\RestaurantKuUI\obj\Debug\RestaurantKuUI.csprojResolveAssemblyReference.cache

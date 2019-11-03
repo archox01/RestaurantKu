@@ -322,15 +322,15 @@ namespace RestaurantKuUI
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spMsMenu_Action", menuIdParameter, nameParameter, priceParameter, photoParameter, pathParameter, taskParameter);
         }
     
-        public virtual int SpDetailOrder_Action(Nullable<int> detailId, Nullable<int> orderId, Nullable<int> menuId, Nullable<int> qty, Nullable<int> total, string status, string task)
+        public virtual int SpDetailOrder_Action(Nullable<int> detailId, string orderId, Nullable<int> menuId, Nullable<int> qty, Nullable<int> total, string status, string task)
         {
             var detailIdParameter = detailId.HasValue ?
                 new ObjectParameter("DetailId", detailId) :
                 new ObjectParameter("DetailId", typeof(int));
     
-            var orderIdParameter = orderId.HasValue ?
+            var orderIdParameter = orderId != null ?
                 new ObjectParameter("OrderId", orderId) :
-                new ObjectParameter("OrderId", typeof(int));
+                new ObjectParameter("OrderId", typeof(string));
     
             var menuIdParameter = menuId.HasValue ?
                 new ObjectParameter("MenuId", menuId) :
@@ -355,11 +355,11 @@ namespace RestaurantKuUI
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SpDetailOrder_Action", detailIdParameter, orderIdParameter, menuIdParameter, qtyParameter, totalParameter, statusParameter, taskParameter);
         }
     
-        public virtual int spMsHeadOrder_Action(Nullable<int> orderId, string employeeId, Nullable<int> memberId, Nullable<System.DateTime> date, string payment, string bank, string task)
+        public virtual int spMsHeadOrder_Action(string orderId, string employeeId, Nullable<int> memberId, Nullable<System.DateTime> date, string payment, string bank, string task)
         {
-            var orderIdParameter = orderId.HasValue ?
+            var orderIdParameter = orderId != null ?
                 new ObjectParameter("OrderId", orderId) :
-                new ObjectParameter("OrderId", typeof(int));
+                new ObjectParameter("OrderId", typeof(string));
     
             var employeeIdParameter = employeeId != null ?
                 new ObjectParameter("EmployeeId", employeeId) :
@@ -386,6 +386,52 @@ namespace RestaurantKuUI
                 new ObjectParameter("task", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spMsHeadOrder_Action", orderIdParameter, employeeIdParameter, memberIdParameter, dateParameter, paymentParameter, bankParameter, taskParameter);
+        }
+    
+        public virtual ObjectResult<SpDetailOrder_Joint_Result> SpDetailOrder_Joint(Nullable<int> detailId, string orderId, Nullable<int> menuId, Nullable<int> qty, Nullable<int> total, string status)
+        {
+            var detailIdParameter = detailId.HasValue ?
+                new ObjectParameter("DetailId", detailId) :
+                new ObjectParameter("DetailId", typeof(int));
+    
+            var orderIdParameter = orderId != null ?
+                new ObjectParameter("OrderId", orderId) :
+                new ObjectParameter("OrderId", typeof(string));
+    
+            var menuIdParameter = menuId.HasValue ?
+                new ObjectParameter("MenuId", menuId) :
+                new ObjectParameter("MenuId", typeof(int));
+    
+            var qtyParameter = qty.HasValue ?
+                new ObjectParameter("Qty", qty) :
+                new ObjectParameter("Qty", typeof(int));
+    
+            var totalParameter = total.HasValue ?
+                new ObjectParameter("Total", total) :
+                new ObjectParameter("Total", typeof(int));
+    
+            var statusParameter = status != null ?
+                new ObjectParameter("status", status) :
+                new ObjectParameter("status", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SpDetailOrder_Joint_Result>("SpDetailOrder_Joint", detailIdParameter, orderIdParameter, menuIdParameter, qtyParameter, totalParameter, statusParameter);
+        }
+    
+        public virtual ObjectResult<spHeaderOrder_Joint_Result> spHeaderOrder_Joint(string employeeId, Nullable<int> memberId, string orderId)
+        {
+            var employeeIdParameter = employeeId != null ?
+                new ObjectParameter("EmployeeId", employeeId) :
+                new ObjectParameter("EmployeeId", typeof(string));
+    
+            var memberIdParameter = memberId.HasValue ?
+                new ObjectParameter("MemberId", memberId) :
+                new ObjectParameter("MemberId", typeof(int));
+    
+            var orderIdParameter = orderId != null ?
+                new ObjectParameter("OrderId", orderId) :
+                new ObjectParameter("OrderId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spHeaderOrder_Joint_Result>("spHeaderOrder_Joint", employeeIdParameter, memberIdParameter, orderIdParameter);
         }
     }
 }
